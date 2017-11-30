@@ -2,10 +2,10 @@
 -- version 4.0.4.2
 -- http://www.phpmyadmin.net
 --
--- Machine: localhost
--- Genereertijd: 30 nov 2017 om 13:50
--- Serverversie: 5.6.13
--- PHP-versie: 5.4.17
+-- Host: localhost
+-- Generation Time: Nov 30, 2017 at 02:51 PM
+-- Server version: 5.6.13
+-- PHP Version: 5.4.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Databank: `webshopdb`
+-- Database: `webshopdb`
 --
 CREATE DATABASE IF NOT EXISTS `webshopdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `webshopdb`;
@@ -25,7 +25,7 @@ USE `webshopdb`;
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `administrator`
+-- Table structure for table `administrator`
 --
 
 CREATE TABLE IF NOT EXISTS `administrator` (
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `administrator` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `bestelling`
+-- Table structure for table `bestelling`
 --
 
 CREATE TABLE IF NOT EXISTS `bestelling` (
@@ -52,10 +52,19 @@ CREATE TABLE IF NOT EXISTS `bestelling` (
   PRIMARY KEY (`Bestelnummer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `bestelling`
+--
+
+INSERT INTO `bestelling` (`Bestelnummer`, `Klantnummer`, `Productnaam`, `Verzendmethode`, `Besteldatum`, `Aantal`) VALUES
+(0, 0, 'Fikse lading nootmuskaat 500kg', 0, '2017-04-23', 1),
+(1, 1, 'Dikke driemaster', 1, '2017-04-24', 1),
+(2, 3, 'Grootschalig pakhuis één stuk', 0, '2017-04-25', 3);
+
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `collectie`
+-- Table structure for table `collectie`
 --
 
 CREATE TABLE IF NOT EXISTS `collectie` (
@@ -67,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `collectie` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `klant`
+-- Table structure for table `klant`
 --
 
 CREATE TABLE IF NOT EXISTS `klant` (
@@ -85,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `klant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden uitgevoerd voor tabel `klant`
+-- Dumping data for table `klant`
 --
 
 INSERT INTO `klant` (`Klantnummer`, `Email`, `Voornaam`, `Tussenvoegsel`, `Achternaam`, `Wachtwoord`, `Rol_ID`, `Salt`) VALUES
@@ -98,7 +107,7 @@ INSERT INTO `klant` (`Klantnummer`, `Email`, `Voornaam`, `Tussenvoegsel`, `Achte
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `locatie`
+-- Table structure for table `locatie`
 --
 
 CREATE TABLE IF NOT EXISTS `locatie` (
@@ -111,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `locatie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden uitgevoerd voor tabel `locatie`
+-- Dumping data for table `locatie`
 --
 
 INSERT INTO `locatie` (`Klantnummer`, `Huisnummer`, `Postcode`, `Straat`, `Woonplaats`) VALUES
@@ -124,7 +133,7 @@ INSERT INTO `locatie` (`Klantnummer`, `Huisnummer`, `Postcode`, `Straat`, `Woonp
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `menu`
+-- Table structure for table `menu`
 --
 
 CREATE TABLE IF NOT EXISTS `menu` (
@@ -137,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `pagina`
+-- Table structure for table `pagina`
 --
 
 CREATE TABLE IF NOT EXISTS `pagina` (
@@ -151,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `pagina` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `product`
+-- Table structure for table `product`
 --
 
 CREATE TABLE IF NOT EXISTS `product` (
@@ -167,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `rollen`
+-- Table structure for table `rollen`
 --
 
 CREATE TABLE IF NOT EXISTS `rollen` (
@@ -179,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `rollen` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `werknemer`
+-- Table structure for table `werknemer`
 --
 
 CREATE TABLE IF NOT EXISTS `werknemer` (
