@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/login.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="88" />
               <folding>
                 <marker date="1512051012722" expanded="true" signature="1085:1096" ph="..." />
                 <marker date="1512051012722" expanded="true" signature="1238:1250" ph="..." />
@@ -33,12 +33,34 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="management.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/include/management.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#2;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#3;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#canvas#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="klantInfo.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/klantInfo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="212" />
+              <folding>
+                <marker date="1512051012692" expanded="true" signature="1634:1704" ph="SELECT Klant... klant" />
+                <marker date="1512051012692" expanded="true" signature="2588:2790" ph="UPDATE klant... " />
+                <marker date="1512051012692" expanded="true" signature="2824:3024" ph="UPDATE locat... " />
+                <marker date="1512051012692" expanded="true" signature="3447:3634" ph="SELECT k.Ema... klant" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,6 +79,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/include/management.php" />
+      </list>
+    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -130,12 +159,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1512051283440</updated>
-      <workItem from="1512051288706" duration="24000" />
+      <workItem from="1512051288706" duration="1138000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24000" />
+    <option name="totallyTimeSpent" value="1138000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -171,14 +200,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/include/klantInfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/klantInfo.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -190,7 +211,7 @@
     <entry file="file://$PROJECT_DIR$/include/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="88" />
           <folding>
             <marker date="1512051012722" expanded="true" signature="1085:1096" ph="..." />
             <marker date="1512051012722" expanded="true" signature="1238:1250" ph="..." />
@@ -203,6 +224,34 @@
             <marker date="1512051012722" expanded="true" signature="7469:7503" ph="SELECT MAX(K... klant" />
             <marker date="1512051012722" expanded="true" signature="7936:8191" ph="INSERT INTO klant... " />
             <marker date="1512051012722" expanded="true" signature="8212:8389" ph="INSERT INTO locatie... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/klantInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="212" />
+          <folding>
+            <marker date="1512051012692" expanded="true" signature="1634:1704" ph="SELECT Klant... klant" />
+            <marker date="1512051012692" expanded="true" signature="2588:2790" ph="UPDATE klant... " />
+            <marker date="1512051012692" expanded="true" signature="2824:3024" ph="UPDATE locat... " />
+            <marker date="1512051012692" expanded="true" signature="3447:3634" ph="SELECT k.Ema... klant" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/management.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#2;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#3;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
