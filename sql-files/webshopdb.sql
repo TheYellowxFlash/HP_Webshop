@@ -2,10 +2,10 @@
 -- version 4.0.4.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Nov 30, 2017 at 02:51 PM
--- Server version: 5.6.13
--- PHP Version: 5.4.17
+-- Machine: localhost
+-- Genereertijd: 30 nov 2017 om 15:13
+-- Serverversie: 5.6.13
+-- PHP-versie: 5.4.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `webshopdb`
+-- Databank: `webshopdb`
 --
 CREATE DATABASE IF NOT EXISTS `webshopdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `webshopdb`;
@@ -25,9 +25,10 @@ USE `webshopdb`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `administrator`
+-- Tabelstructuur voor tabel `administrator`
 --
 
+DROP TABLE IF EXISTS `administrator`;
 CREATE TABLE IF NOT EXISTS `administrator` (
   `ID` int(11) NOT NULL,
   `Gebruikersnaam` varchar(45) NOT NULL,
@@ -36,16 +37,22 @@ CREATE TABLE IF NOT EXISTS `administrator` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Tabel leegmaken voor invoegen `administrator`
+--
+
+TRUNCATE TABLE `administrator`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bestelling`
+-- Tabelstructuur voor tabel `bestelling`
 --
 
+DROP TABLE IF EXISTS `bestelling`;
 CREATE TABLE IF NOT EXISTS `bestelling` (
   `Bestelnummer` int(11) NOT NULL,
   `Klantnummer` int(11) NOT NULL,
-  `Productnaam` varchar(255) NOT NULL,
+  `Productnummer` int(11) NOT NULL,
   `Verzendmethode` int(11) NOT NULL,
   `Besteldatum` date NOT NULL,
   `Aantal` int(11) NOT NULL,
@@ -53,32 +60,52 @@ CREATE TABLE IF NOT EXISTS `bestelling` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bestelling`
+-- Tabel leegmaken voor invoegen `bestelling`
 --
 
-INSERT INTO `bestelling` (`Bestelnummer`, `Klantnummer`, `Productnaam`, `Verzendmethode`, `Besteldatum`, `Aantal`) VALUES
-(0, 0, 'Fikse lading nootmuskaat 500kg', 0, '2017-04-23', 1),
-(1, 1, 'Dikke driemaster', 1, '2017-04-24', 1),
-(2, 3, 'Grootschalig pakhuis één stuk', 0, '2017-04-25', 3);
+TRUNCATE TABLE `bestelling`;
+--
+-- Gegevens worden uitgevoerd voor tabel `bestelling`
+--
+
+INSERT INTO `bestelling` (`Bestelnummer`, `Klantnummer`, `Productnummer`, `Verzendmethode`, `Besteldatum`, `Aantal`) VALUES
+(0, 0, 0, 0, '2017-04-23', 1),
+(1, 1, 0, 1, '2017-04-24', 1),
+(2, 3, 0, 0, '2017-04-25', 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `collectie`
+-- Tabelstructuur voor tabel `collectie`
 --
 
+DROP TABLE IF EXISTS `collectie`;
 CREATE TABLE IF NOT EXISTS `collectie` (
   `ID` int(11) NOT NULL,
   `Naam` varchar(45) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Tabel leegmaken voor invoegen `collectie`
+--
+
+TRUNCATE TABLE `collectie`;
+--
+-- Gegevens worden uitgevoerd voor tabel `collectie`
+--
+
+INSERT INTO `collectie` (`ID`, `Naam`) VALUES
+(1, 'Specerijen'),
+(2, 'Vaartuigen');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `klant`
+-- Tabelstructuur voor tabel `klant`
 --
 
+DROP TABLE IF EXISTS `klant`;
 CREATE TABLE IF NOT EXISTS `klant` (
   `Klantnummer` int(11) NOT NULL DEFAULT '0',
   `Email` varchar(45) DEFAULT NULL,
@@ -94,7 +121,12 @@ CREATE TABLE IF NOT EXISTS `klant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `klant`
+-- Tabel leegmaken voor invoegen `klant`
+--
+
+TRUNCATE TABLE `klant`;
+--
+-- Gegevens worden uitgevoerd voor tabel `klant`
 --
 
 INSERT INTO `klant` (`Klantnummer`, `Email`, `Voornaam`, `Tussenvoegsel`, `Achternaam`, `Wachtwoord`, `Rol_ID`, `Salt`) VALUES
@@ -107,9 +139,10 @@ INSERT INTO `klant` (`Klantnummer`, `Email`, `Voornaam`, `Tussenvoegsel`, `Achte
 -- --------------------------------------------------------
 
 --
--- Table structure for table `locatie`
+-- Tabelstructuur voor tabel `locatie`
 --
 
+DROP TABLE IF EXISTS `locatie`;
 CREATE TABLE IF NOT EXISTS `locatie` (
   `Klantnummer` int(11) NOT NULL,
   `Huisnummer` varchar(45) NOT NULL,
@@ -120,7 +153,12 @@ CREATE TABLE IF NOT EXISTS `locatie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `locatie`
+-- Tabel leegmaken voor invoegen `locatie`
+--
+
+TRUNCATE TABLE `locatie`;
+--
+-- Gegevens worden uitgevoerd voor tabel `locatie`
 --
 
 INSERT INTO `locatie` (`Klantnummer`, `Huisnummer`, `Postcode`, `Straat`, `Woonplaats`) VALUES
@@ -133,9 +171,10 @@ INSERT INTO `locatie` (`Klantnummer`, `Huisnummer`, `Postcode`, `Straat`, `Woonp
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu`
+-- Tabelstructuur voor tabel `menu`
 --
 
+DROP TABLE IF EXISTS `menu`;
 CREATE TABLE IF NOT EXISTS `menu` (
   `ID` int(11) NOT NULL,
   `Item` varchar(45) NOT NULL,
@@ -143,12 +182,18 @@ CREATE TABLE IF NOT EXISTS `menu` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Tabel leegmaken voor invoegen `menu`
+--
+
+TRUNCATE TABLE `menu`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pagina`
+-- Tabelstructuur voor tabel `pagina`
 --
 
+DROP TABLE IF EXISTS `pagina`;
 CREATE TABLE IF NOT EXISTS `pagina` (
   `ID` int(11) NOT NULL,
   `Titel` varchar(255) NOT NULL,
@@ -157,12 +202,18 @@ CREATE TABLE IF NOT EXISTS `pagina` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Tabel leegmaken voor invoegen `pagina`
+--
+
+TRUNCATE TABLE `pagina`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Tabelstructuur voor tabel `product`
 --
 
+DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
   `Productnummer` int(11) NOT NULL,
   `Productbeschrijving` longtext NOT NULL,
@@ -173,24 +224,44 @@ CREATE TABLE IF NOT EXISTS `product` (
   PRIMARY KEY (`Productnummer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Tabel leegmaken voor invoegen `product`
+--
+
+TRUNCATE TABLE `product`;
+--
+-- Gegevens worden uitgevoerd voor tabel `product`
+--
+
+INSERT INTO `product` (`Productnummer`, `Productbeschrijving`, `Prijs`, `Afbeelding`, `Productnaam`, `Collectie_ID`) VALUES
+(0, 'Fikse Lading Nootmuskaat 500kg', '500.00', 'nootmuskaat.jpg', 'Nootmuskaat 500kg', 1),
+(1, 'Dikke driemaster', '2500.00', 'boot3.jpg', 'Driemaster', 2);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rollen`
+-- Tabelstructuur voor tabel `rollen`
 --
 
+DROP TABLE IF EXISTS `rollen`;
 CREATE TABLE IF NOT EXISTS `rollen` (
   `ID` int(11) NOT NULL,
   `Naam` varchar(45) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Tabel leegmaken voor invoegen `rollen`
+--
+
+TRUNCATE TABLE `rollen`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `werknemer`
+-- Tabelstructuur voor tabel `werknemer`
 --
 
+DROP TABLE IF EXISTS `werknemer`;
 CREATE TABLE IF NOT EXISTS `werknemer` (
   `ID` int(11) NOT NULL,
   `Gebruikersnaam` varchar(45) NOT NULL,
@@ -200,6 +271,11 @@ CREATE TABLE IF NOT EXISTS `werknemer` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Tabel leegmaken voor invoegen `werknemer`
+--
+
+TRUNCATE TABLE `werknemer`;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
