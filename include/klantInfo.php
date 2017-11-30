@@ -37,7 +37,7 @@
 <?php
 session_start();
 
-        $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
+        include("dbconnect.php");
         $result = $conn->query("SELECT Klantnummer FROM klant WHERE Email='" . $_SESSION["login"] . "';");
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -61,7 +61,7 @@ session_start();
         $straat = $_POST["straat"];
         $woonplaats = $_POST["woonplaats"];
 
-        $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
+        include("dbconnect.php");
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
@@ -89,7 +89,7 @@ session_start();
         header('Location: '.$_SERVER['PHP_SELF']);
     }
     else {
-        $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
+        include("dbconnect.php");
         $result = $conn->query("SELECT k.Email, k.Voornaam, k.Tussenvoegsel, k.Achternaam, l.Huisnummer, l.Postcode, l.Straat, l.Woonplaats FROM klant k JOIN locatie l ON k.Klantnummer=l.Klantnummer WHERE k.Klantnummer=" . $kNum . ";");
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {

@@ -5,7 +5,9 @@
 </head>
 
 <?php
-    $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
+    date_default_timezone_set ( "Europe/Amsterdam" );
+
+    include("dbconnect.php");
     $result = $conn->query("SELECT * FROM bestelling");
     if ($result->num_rows > 0) {
         $i = 0;
@@ -46,5 +48,7 @@
     ctx.stroke();
 
     ctx.font = "20px Arial";
-    ctx.fillText("<?php echo date('Y-m-d'); ?>",0,425);
+    ctx.fillText(<?php echo "'" . date('Y-m-d') . "'"; ?>,0,425);
 </script>
+
+<?php echo "'" . date('Y-m-d') . "'"; ?>

@@ -14,20 +14,21 @@
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="121" column="19" lean-forward="true" selection-start-line="112" selection-start-column="4" selection-end-line="121" selection-end-column="19" />
+            <state relative-caret-position="2625">
+              <caret line="256" column="35" lean-forward="false" selection-start-line="256" selection-start-column="35" selection-end-line="256" selection-end-column="35" />
               <folding>
-                <marker date="1512051012722" expanded="true" signature="1085:1096" ph="..." />
-                <marker date="1512051012722" expanded="true" signature="1238:1250" ph="..." />
-                <marker date="1512051012722" expanded="true" signature="1805:1816" ph="..." />
-                <marker date="1512051012722" expanded="true" signature="1975:1987" ph="..." />
-                <marker date="1512051012722" expanded="true" signature="3691:3713" ph="SELECT Salt klant" />
-                <marker date="1512051012722" expanded="true" signature="4886:4927" ph="SELECT Email... klant" />
-                <marker date="1512051012722" expanded="true" signature="6438:6527" ph="..." />
-                <marker date="1512051012722" expanded="true" signature="6592:6943" ph="..." />
-                <marker date="1512051012722" expanded="true" signature="7469:7503" ph="SELECT MAX(K... klant" />
-                <marker date="1512051012722" expanded="true" signature="7936:8191" ph="INSERT INTO klant... " />
-                <marker date="1512051012722" expanded="true" signature="8212:8389" ph="INSERT INTO locatie... " />
+                <marker date="1512055286950" expanded="true" signature="1085:1096" ph="..." />
+                <marker date="1512055286950" expanded="true" signature="1238:1250" ph="..." />
+                <marker date="1512055286950" expanded="true" signature="1805:1816" ph="..." />
+                <marker date="1512055286950" expanded="true" signature="1975:1987" ph="..." />
+                <marker date="1512055286950" expanded="true" signature="3655:3677" ph="SELECT Salt klant" />
+                <marker date="1512055286950" expanded="true" signature="4814:4855" ph="SELECT Email... klant" />
+                <marker date="1512055286950" expanded="true" signature="6366:6455" ph="..." />
+                <marker date="1512055286950" expanded="true" signature="6520:6871" ph="..." />
+                <marker date="1512055286950" expanded="true" signature="7361:7395" ph="SELECT MAX(K... klant" />
+                <marker date="1512055286950" expanded="true" signature="7792:8047" ph="INSERT INTO klant... " />
+                <marker date="1512055286950" expanded="true" signature="8068:8245" ph="INSERT INTO locatie... " />
+                <marker date="1512055286950" expanded="false" signature="9021:9035" ph="..." />
               </folding>
             </state>
           </provider>
@@ -36,17 +37,27 @@
       <file leaf-file-name="management.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/include/management.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="48" column="55" lean-forward="true" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+            <state relative-caret-position="238">
+              <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#2;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#3;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#canvas#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-                <marker date="1512054723444" expanded="true" signature="462:486" ph="SELECT * FRO... bestelling" />
+                <element signature="e#1159#1180#0#HTML" expanded="true" />
+                <element signature="e#1202#1223#0#HTML" expanded="true" />
+                <element signature="e#1258#1279#0#HTML" expanded="true" />
+                <element signature="e#1315#1336#0#HTML" expanded="true" />
+                <element signature="e#1371#1392#0#HTML" expanded="true" />
+                <element signature="e#1472#1505#0#HTML" expanded="true" />
+                <marker date="1512055208868" expanded="true" signature="481:505" ph="SELECT * FRO... bestelling" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dbconnect.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/dbconnect.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -54,13 +65,16 @@
       <file leaf-file-name="klantInfo.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/klantInfo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="212" />
+            <state relative-caret-position="1078">
+              <caret line="92" column="35" lean-forward="false" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
               <folding>
-                <marker date="1512051012692" expanded="true" signature="1634:1704" ph="SELECT Klant... klant" />
-                <marker date="1512051012692" expanded="true" signature="2588:2790" ph="UPDATE klant... " />
-                <marker date="1512051012692" expanded="true" signature="2824:3024" ph="UPDATE locat... " />
-                <marker date="1512051012692" expanded="true" signature="3447:3634" ph="SELECT k.Ema... klant" />
+                <marker date="1512055286669" expanded="true" signature="1598:1668" ph="SELECT Klant... klant" />
+                <marker date="1512055286669" expanded="true" signature="2516:2718" ph="UPDATE klant... " />
+                <marker date="1512055286669" expanded="true" signature="2752:2952" ph="UPDATE locat... " />
+                <marker date="1512055286669" expanded="true" signature="3339:3526" ph="SELECT k.Ema... klant" />
+                <marker date="1512055286669" expanded="false" signature="5202:5216" ph="..." />
+                <marker date="1512055286669" expanded="false" signature="7378:7392" ph="..." />
+                <marker date="1512055286669" expanded="false" signature="7498:7512" ph="..." />
               </folding>
             </state>
           </provider>
@@ -78,12 +92,23 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>$conn = new mysqli(&quot;localhost&quot;, &quot;root&quot;, &quot;usbw&quot;, &quot;webshopdb&quot;);</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>include(&quot;dbconnect.php&quot;);</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/include/dbconnect.php" />
+        <option value="$PROJECT_DIR$/include/login.php" />
+        <option value="$PROJECT_DIR$/include/klantInfo.php" />
         <option value="$PROJECT_DIR$/include/management.php" />
       </list>
     </option>
@@ -160,12 +185,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1512051283440</updated>
-      <workItem from="1512051288706" duration="3312000" />
+      <workItem from="1512051288706" duration="3828000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3312000" />
+    <option name="totallyTimeSpent" value="3828000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -201,6 +226,43 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/include/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2625">
+          <caret line="256" column="35" lean-forward="false" selection-start-line="256" selection-start-column="35" selection-end-line="256" selection-end-column="35" />
+          <folding>
+            <marker date="1512055286950" expanded="true" signature="1085:1096" ph="..." />
+            <marker date="1512055286950" expanded="true" signature="1238:1250" ph="..." />
+            <marker date="1512055286950" expanded="true" signature="1805:1816" ph="..." />
+            <marker date="1512055286950" expanded="true" signature="1975:1987" ph="..." />
+            <marker date="1512055286950" expanded="true" signature="3655:3677" ph="SELECT Salt klant" />
+            <marker date="1512055286950" expanded="true" signature="4814:4855" ph="SELECT Email... klant" />
+            <marker date="1512055286950" expanded="true" signature="6366:6455" ph="..." />
+            <marker date="1512055286950" expanded="true" signature="6520:6871" ph="..." />
+            <marker date="1512055286950" expanded="true" signature="7361:7395" ph="SELECT MAX(K... klant" />
+            <marker date="1512055286950" expanded="true" signature="7792:8047" ph="INSERT INTO klant... " />
+            <marker date="1512055286950" expanded="true" signature="8068:8245" ph="INSERT INTO locatie... " />
+            <marker date="1512055286950" expanded="false" signature="9021:9035" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/klantInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1078">
+          <caret line="92" column="35" lean-forward="false" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
+          <folding>
+            <marker date="1512055286669" expanded="true" signature="1598:1668" ph="SELECT Klant... klant" />
+            <marker date="1512055286669" expanded="true" signature="2516:2718" ph="UPDATE klant... " />
+            <marker date="1512055286669" expanded="true" signature="2752:2952" ph="UPDATE locat... " />
+            <marker date="1512055286669" expanded="true" signature="3339:3526" ph="SELECT k.Ema... klant" />
+            <marker date="1512055286669" expanded="false" signature="5202:5216" ph="..." />
+            <marker date="1512055286669" expanded="false" signature="7378:7392" ph="..." />
+            <marker date="1512055286669" expanded="false" signature="7498:7512" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/include/klantInfo.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -209,51 +271,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/klantInfo.php">
+    <entry file="file://$PROJECT_DIR$/include/dbconnect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="212" />
-          <folding>
-            <marker date="1512051012692" expanded="true" signature="1634:1704" ph="SELECT Klant... klant" />
-            <marker date="1512051012692" expanded="true" signature="2588:2790" ph="UPDATE klant... " />
-            <marker date="1512051012692" expanded="true" signature="2824:3024" ph="UPDATE locat... " />
-            <marker date="1512051012692" expanded="true" signature="3447:3634" ph="SELECT k.Ema... klant" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="121" column="19" lean-forward="true" selection-start-line="112" selection-start-column="4" selection-end-line="121" selection-end-column="19" />
-          <folding>
-            <marker date="1512051012722" expanded="true" signature="1085:1096" ph="..." />
-            <marker date="1512051012722" expanded="true" signature="1238:1250" ph="..." />
-            <marker date="1512051012722" expanded="true" signature="1805:1816" ph="..." />
-            <marker date="1512051012722" expanded="true" signature="1975:1987" ph="..." />
-            <marker date="1512051012722" expanded="true" signature="3691:3713" ph="SELECT Salt klant" />
-            <marker date="1512051012722" expanded="true" signature="4886:4927" ph="SELECT Email... klant" />
-            <marker date="1512051012722" expanded="true" signature="6438:6527" ph="..." />
-            <marker date="1512051012722" expanded="true" signature="6592:6943" ph="..." />
-            <marker date="1512051012722" expanded="true" signature="7469:7503" ph="SELECT MAX(K... klant" />
-            <marker date="1512051012722" expanded="true" signature="7936:8191" ph="INSERT INTO klant... " />
-            <marker date="1512051012722" expanded="true" signature="8212:8389" ph="INSERT INTO locatie... " />
-          </folding>
+          <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/include/management.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="48" column="55" lean-forward="true" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+        <state relative-caret-position="238">
+          <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#2;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#3;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#canvas#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-            <marker date="1512054723444" expanded="true" signature="462:486" ph="SELECT * FRO... bestelling" />
+            <element signature="e#1159#1180#0#HTML" expanded="true" />
+            <element signature="e#1202#1223#0#HTML" expanded="true" />
+            <element signature="e#1258#1279#0#HTML" expanded="true" />
+            <element signature="e#1315#1336#0#HTML" expanded="true" />
+            <element signature="e#1371#1392#0#HTML" expanded="true" />
+            <element signature="e#1472#1505#0#HTML" expanded="true" />
+            <marker date="1512055208868" expanded="true" signature="481:505" ph="SELECT * FRO... bestelling" />
           </folding>
         </state>
       </provider>
