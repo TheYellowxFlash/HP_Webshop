@@ -1293,7 +1293,12 @@ pre code {
   .col-lg-9 {
     -ms-flex: 0 0 75%;
         flex: 0 0 75%;
-    max-width: 75%;
+    max-width: 90%;
+    min-height: 50px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 1px;
+
   }
   .col-lg-10 {
     -ms-flex: 0 0 83.333333%;
@@ -1310,6 +1315,27 @@ pre code {
         flex: 0 0 100%;
     max-width: 100%;
   }
+
+  .col-lg-13 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 79%;
+    margin: 0 auto;
+    width: 47%;
+    padding: 1px;
+  }
+
+  .col-lg-14 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 100%;
+    margin: 0 auto;
+    width: 50%;
+    padding: 1px;
+    text-align: center;
+
+  }
+
   .order-lg-first {
     -ms-flex-order: -1;
         order: -1;
