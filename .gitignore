@@ -39,4 +39,4 @@ Thumbs.db
 .idea*
 
 # Aparte bestanden #
-include/dbconnect.php
+#include/dbconnect.php#
