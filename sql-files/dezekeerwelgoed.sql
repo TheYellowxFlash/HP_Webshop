@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 01, 2017 at 02:01 PM
+-- Generation Time: Dec 01, 2017 at 02:13 PM
 -- Server version: 5.6.13
 -- PHP Version: 5.4.17
 
@@ -28,6 +28,7 @@ USE `webshopdb`;
 -- Table structure for table `administrator`
 --
 
+DROP TABLE IF EXISTS `administrator`;
 CREATE TABLE IF NOT EXISTS `administrator` (
   `ID` int(11) NOT NULL,
   `Gebruikersnaam` varchar(45) NOT NULL,
@@ -36,12 +37,18 @@ CREATE TABLE IF NOT EXISTS `administrator` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncate table before insert `administrator`
+--
+
+TRUNCATE TABLE `administrator`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `bestelling`
 --
 
+DROP TABLE IF EXISTS `bestelling`;
 CREATE TABLE IF NOT EXISTS `bestelling` (
   `Bestelnummer` int(11) NOT NULL,
   `Klantnummer` int(11) NOT NULL,
@@ -52,6 +59,11 @@ CREATE TABLE IF NOT EXISTS `bestelling` (
   PRIMARY KEY (`Bestelnummer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncate table before insert `bestelling`
+--
+
+TRUNCATE TABLE `bestelling`;
 --
 -- Dumping data for table `bestelling`
 --
@@ -67,12 +79,18 @@ INSERT INTO `bestelling` (`Bestelnummer`, `Klantnummer`, `Productnaam`, `Verzend
 -- Table structure for table `categorie`
 --
 
+DROP TABLE IF EXISTS `categorie`;
 CREATE TABLE IF NOT EXISTS `categorie` (
   `ID` int(11) NOT NULL,
   `Naam` varchar(45) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncate table before insert `categorie`
+--
+
+TRUNCATE TABLE `categorie`;
 --
 -- Dumping data for table `categorie`
 --
@@ -88,12 +106,18 @@ INSERT INTO `categorie` (`ID`, `Naam`) VALUES
 -- Table structure for table `collectie`
 --
 
+DROP TABLE IF EXISTS `collectie`;
 CREATE TABLE IF NOT EXISTS `collectie` (
   `ID` int(11) NOT NULL,
   `Naam` varchar(45) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncate table before insert `collectie`
+--
+
+TRUNCATE TABLE `collectie`;
 --
 -- Dumping data for table `collectie`
 --
@@ -109,6 +133,7 @@ INSERT INTO `collectie` (`ID`, `Naam`) VALUES
 -- Table structure for table `klant`
 --
 
+DROP TABLE IF EXISTS `klant`;
 CREATE TABLE IF NOT EXISTS `klant` (
   `Klantnummer` int(11) NOT NULL DEFAULT '0',
   `Email` varchar(45) DEFAULT NULL,
@@ -123,6 +148,11 @@ CREATE TABLE IF NOT EXISTS `klant` (
   UNIQUE KEY `Email_UNIQUE` (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncate table before insert `klant`
+--
+
+TRUNCATE TABLE `klant`;
 --
 -- Dumping data for table `klant`
 --
@@ -140,6 +170,7 @@ INSERT INTO `klant` (`Klantnummer`, `Email`, `Voornaam`, `Tussenvoegsel`, `Achte
 -- Table structure for table `locatie`
 --
 
+DROP TABLE IF EXISTS `locatie`;
 CREATE TABLE IF NOT EXISTS `locatie` (
   `Klantnummer` int(11) NOT NULL,
   `Huisnummer` varchar(45) NOT NULL,
@@ -149,6 +180,11 @@ CREATE TABLE IF NOT EXISTS `locatie` (
   PRIMARY KEY (`Klantnummer`,`Huisnummer`,`Postcode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncate table before insert `locatie`
+--
+
+TRUNCATE TABLE `locatie`;
 --
 -- Dumping data for table `locatie`
 --
@@ -166,6 +202,7 @@ INSERT INTO `locatie` (`Klantnummer`, `Huisnummer`, `Postcode`, `Straat`, `Woonp
 -- Table structure for table `menu`
 --
 
+DROP TABLE IF EXISTS `menu`;
 CREATE TABLE IF NOT EXISTS `menu` (
   `ID` int(11) NOT NULL,
   `Item` varchar(45) NOT NULL,
@@ -173,12 +210,18 @@ CREATE TABLE IF NOT EXISTS `menu` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncate table before insert `menu`
+--
+
+TRUNCATE TABLE `menu`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `pagina`
 --
 
+DROP TABLE IF EXISTS `pagina`;
 CREATE TABLE IF NOT EXISTS `pagina` (
   `ID` int(11) NOT NULL,
   `Titel` varchar(255) NOT NULL,
@@ -187,12 +230,18 @@ CREATE TABLE IF NOT EXISTS `pagina` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncate table before insert `pagina`
+--
+
+TRUNCATE TABLE `pagina`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `product`
 --
 
+DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
   `Productnummer` int(11) NOT NULL,
   `Productbeschrijving` longtext NOT NULL,
@@ -204,6 +253,11 @@ CREATE TABLE IF NOT EXISTS `product` (
   PRIMARY KEY (`Productnummer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncate table before insert `product`
+--
+
+TRUNCATE TABLE `product`;
 --
 -- Dumping data for table `product`
 --
@@ -225,12 +279,18 @@ INSERT INTO `product` (`Productnummer`, `Productbeschrijving`, `Prijs`, `Afbeeld
 -- Table structure for table `rollen`
 --
 
+DROP TABLE IF EXISTS `rollen`;
 CREATE TABLE IF NOT EXISTS `rollen` (
   `ID` int(11) NOT NULL,
   `Naam` varchar(45) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncate table before insert `rollen`
+--
+
+TRUNCATE TABLE `rollen`;
 --
 -- Dumping data for table `rollen`
 --
@@ -245,6 +305,7 @@ INSERT INTO `rollen` (`ID`, `Naam`) VALUES
 -- Table structure for table `werknemer`
 --
 
+DROP TABLE IF EXISTS `werknemer`;
 CREATE TABLE IF NOT EXISTS `werknemer` (
   `ID` int(11) NOT NULL,
   `Gebruikersnaam` varchar(45) NOT NULL,
@@ -254,6 +315,11 @@ CREATE TABLE IF NOT EXISTS `werknemer` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncate table before insert `werknemer`
+--
+
+TRUNCATE TABLE `werknemer`;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
