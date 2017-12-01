@@ -519,6 +519,15 @@ mark,
   list-style: none;
 }
 
+.list-inline li{
+  display: inline;
+}
+.list-inline li:not(:first-child):before{
+  content: '|';
+  padding: 0px 10px;
+  color: black;
+}
+
 .list-inline-item {
   display: inline-block;
 }
@@ -634,8 +643,6 @@ pre code {
 
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -5141,6 +5148,8 @@ button.close {
   overflow: scroll;
 }
 
+
+
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 500px;
@@ -5740,7 +5749,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 .border {
-  border: 1px solid #e9ecef !important;
+  border-top: 1px solid black !important;
 }
 
 .border-0 {
@@ -8288,7 +8297,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 }
 
 .text-white {
-  color: #fff !important;
+  color: black !important;
 }
 
 .text-primary {
@@ -8375,3 +8384,4 @@ a.text-dark:focus, a.text-dark:hover {
   visibility: hidden !important;
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
