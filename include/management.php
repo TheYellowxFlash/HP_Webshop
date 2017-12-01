@@ -48,7 +48,5 @@
     ctx.stroke();
 
     ctx.font = "20px Arial";
-    ctx.fillText(<?php echo "'" . date('Y-m-d') . "'"; ?>,0,425);
+    ctx.fillText("<?php echo date('Y-m-d'); ?>",0,425);
 </script>
-
-<?php echo "'" . date('Y-m-d') . "'"; ?>

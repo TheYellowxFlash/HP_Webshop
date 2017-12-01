@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 30 nov 2017 om 15:13
+-- Genereertijd: 01 dec 2017 om 11:44
 -- Serverversie: 5.6.13
 -- PHP-versie: 5.4.17
 
@@ -130,11 +130,7 @@ TRUNCATE TABLE `klant`;
 --
 
 INSERT INTO `klant` (`Klantnummer`, `Email`, `Voornaam`, `Tussenvoegsel`, `Achternaam`, `Wachtwoord`, `Rol_ID`, `Salt`) VALUES
-(0, 'willem@dezwijger.com', 'Willem', 'van', 'Oranje', '6963cb98cc0c6f24d1d8d472f9665e6efe0186400267dc9b1ec00d8f9add8abb5ef682d4961d516b44b8e8b78cc726f12089960d66756a1c51222592a3533e8f', 1, '30WsET30WsET30W'),
-(1, 'tolmeester@kanaal.nl', 'Michiel Adriaenszoon', 'de', 'Ruyter', '7d993e66602f1ecf54534a7357ced40da758b13962058b4f72c3b24c8c00e3727abea5d0f2b20ed5fdbc75555e4f1f5976560d880aa89894141a828178c95cb1', 1, 'MRSwJ5UMqRvrlfR'),
-(2, 'sinterbaas@hotmale.nl', 'Jan', 'Pieterszoon', 'Coen', '692de305a5f41f770e4992d949724bbb053a26eb916e5c8ba2977a4f5b6f5c0596fb99924aa798fb7bec74902e45f01c18c6f8c3292a4626b50457d3f51065b0', 1, 'tAfiFpqOAUkjCz2'),
-(3, 'maximvanree@gmail.com', 'Maxim', '', 'Ivanov', '2d56b5d2d7323f2cd559889a71496c078d6e8a3d40ff0e528b7b153f21b229f830cc80cb8202368827c8bcbc421ac828352ebb9df3229b1f190fe649200374d5', 1, 'UCmeKvvZwmT5HhJ'),
-(4, 'cowfaicd@gmail.com', 'Jeroen', '', 'Dekker', '8497657f46af501c6deb2395027771a1172aa732a8fc00edb9890d21293e6183672296f51a2ab66fe28ced48287cbd61a8ff11e2aaa574a3cc9d976d0b11c075', 1, 'mfRJ9Ec8jQTDbk1');
+(0, 'willem@dezwijger.com', 'Willem', 'van', 'Oranje', 'a83518c0922d85e9651fcea02662a65177982ec3e5311aeeee52e563d0ac5f0a8f954468fcfcab2676085736841a08832815578914542e8c39be8ed13ccb2487', 1, 'jOgQPiR6PVzUWqJ');
 
 -- --------------------------------------------------------
 
@@ -166,7 +162,9 @@ INSERT INTO `locatie` (`Klantnummer`, `Huisnummer`, `Postcode`, `Straat`, `Woonp
 (1, '3', '1673NL', 'Mastenstraat', 'Vlissingen'),
 (2, '420', '1337XD', 'Denhaagstraat', 'Amsterdam'),
 (3, '123', '8031EJ', 'Handellaan', 'Zwolle'),
-(4, '20', '7701ED', 'Ridderspoorstraat', 'Dedemsvaart');
+(4, '20', '7701ED', 'Ridderspoorstraat', 'Dedemsvaart'),
+(5, '2', 'test', 'test', 'test'),
+(5, '2', 'testxd', 'test', 'test');
 
 -- --------------------------------------------------------
 

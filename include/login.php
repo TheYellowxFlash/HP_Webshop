@@ -130,6 +130,59 @@ function generateSalt(){
     return $salt;
 }
 
+function saltPass($pass, $salt){
+    $alphaValues = array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+        "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+        "1","2","3","4","5","6","7","8","9","0");
+
+    $message    = $pass;
+    $key        = $salt;
+    $usableKey = $key;
+
+    $message = mb_strtolower($message);
+    $usableKey = mb_strtolower($usableKey);
+
+    while(strlen($usableKey) < strlen($message)){
+        $usableKey .= $usableKey;
+    }
+    while(strlen($usableKey) > strlen($message)){
+        $usableKey = substr($usableKey, 0, -1);
+    }
+
+    $crypt = "";
+    for($i = 0; $i < strlen($usableKey); $i++){
+        if(in_array(substr($message, $i, 1), $alphaValues)) {
+            $tempNum = 0;
+            $mesNum = 0;
+            $keyNum = 0;
+
+            for ($j = 0; $j < count($alphaValues); $j++) {
+                if ($alphaValues[$j] == substr($message, $i, 1)) {
+                    $mesNum = $j;
+                }
+                if ($alphaValues[$j] == substr($usableKey, $i, 1)) {
+                    $keyNum = $j;
+                }
+
+                if ($mesNum + $keyNum > 0) {
+                    $tempNum = $mesNum + $keyNum;
+                }
+            }
+
+            if ($tempNum > count($alphaValues)) {
+                $tempNum -= count($alphaValues);
+            }
+
+            $crypt .= $alphaValues[$tempNum];
+        }
+        else{
+            $crypt .= substr($message, $i, 1);
+        }
+    }
+
+    return $crypt;
+}
+
 function hashPass($pass, $salt){
     //Verleng salt totdat deze even lang is als het opgegeven wachtwoord
     while(strlen($pass) > strlen($salt)){
@@ -139,10 +192,7 @@ function hashPass($pass, $salt){
         $salt = substr($salt, 0, -1);
     }
 
-    $hashable = "";
-    for($i = 0; $i < strlen($pass); $i++) {
-        $hashable = $hashable . substr($pass, $i, 1) . substr($salt, $i, 1);
-    }
+    $hashable = saltPass($pass, $salt);
 
     //Hash the hashable string a couple of times
     $hashedData = $hashable;
