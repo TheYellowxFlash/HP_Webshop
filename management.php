@@ -7,7 +7,7 @@
 <?php
     date_default_timezone_set ( "Europe/Amsterdam" );
 
-    include("dbconnect.php");
+    include("include/dbconnect.php");
     $result = $conn->query("SELECT * FROM bestelling");
     if ($result->num_rows > 0) {
         $i = 0;
