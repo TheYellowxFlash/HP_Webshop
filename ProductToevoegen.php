@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="include/klantInfo.css"/>
+    <link rel="stylesheet" href="klantInfo.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         function toggleTabellen() {
@@ -15,7 +15,7 @@
 session_start();
 
 //Kijk hoeveel collecties er in de database staan en sla dit op in $collecties
-$conn = new mysqli("localhost", "root", "", "webshopdb");
+$conn = new mysqli("localhost", "root", "usbw", "webshopdb");
 $sql = "SELECT COUNT('ID') FROM collectie";
 $result = $conn->query($sql);
 while($row = mysqli_fetch_array($result)) {
@@ -63,8 +63,17 @@ for ($i = 1; $i <= $categorieen; $i++) {
 echo "<div class='col-md-6'>
 <div class='container-fluid'><div class='col-md-3'><form method='get' action=''>";
 if(!isset($_GET["alleCollectiesSet"])) {
+    $temp = true;
+
     for ($i = 1; $i <= $collecties; $i++) {
         echo "<input type='hidden' name='co" . $i . "enabled' />";
+        if(!isset($_GET["co" . $i . "enabled"])){
+            $temp = false;
+        }
+    }
+
+    if($temp){
+        header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] . "&alleCollectiesSet=on");
     }
 }
 for ($i = 1; $i <= $categorieen; $i++) {
@@ -102,8 +111,18 @@ echo "</form></div>";
 //Laat een form zien om alleen bepaalde categorieën aan te passen
 echo "<div class='col-md-3'><form method='get' action=''>";
 if(!isset($_GET["alleCategorieenSet"])) {
+    $temp = true;
+
+
     for ($i = 1; $i <= $categorieen; $i++) {
         echo "<input type='hidden' name='ca" . $i . "enabled' />";
+        if(!isset($_GET["ca" . $i . "enabled"])){
+            $temp = false;
+        }
+    }
+
+    if($temp){
+        header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'] . "&alleCategorieenSet=on");
     }
 }
 for ($i = 1; $i <= $collecties; $i++) {
@@ -148,7 +167,7 @@ for($i = 1; $i <= $collecties; $i++) {
     for ($k = 1; $k <= $categorieen; $k++) {
         if(in_array($i, $zichtbareCollecties)) {
             if(in_array($k, $zichtbareCategorieen)) {
-                $conn = new mysqli("localhost", "root", "", "webshopdb");
+                $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
                 $sql = "SELECT * FROM product WHERE collectie_ID = " . $i . " AND categorie_ID = " . $k;
                 $result = $conn->query($sql);
 
@@ -188,7 +207,7 @@ for($i = 1; $i <= $collecties; $i++) {
     for ($k = 1; $k <= $categorieen; $k++) {
         if(in_array($i, $zichtbareCollecties)) {
             if(in_array($k, $zichtbareCategorieen)) {
-                $conn = new mysqli("localhost", "root", "", "webshopdb");
+                $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
                 $sql = "SELECT * FROM product WHERE collectie_ID = " . $i . " AND categorie_ID = " . $k;
                 $result = $conn->query($sql);
 
