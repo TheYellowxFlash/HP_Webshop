@@ -2,10 +2,10 @@
 -- version 4.0.4.2
 -- http://www.phpmyadmin.net
 --
--- Machine: localhost
--- Genereertijd: 01 dec 2017 om 14:29
--- Serverversie: 5.6.13
--- PHP-versie: 5.4.17
+-- Host: localhost
+-- Generation Time: Dec 01, 2017 at 02:13 PM
+-- Server version: 5.6.13
+-- PHP Version: 5.4.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Databank: `webshopdb`
+-- Database: `webshopdb`
 --
 CREATE DATABASE IF NOT EXISTS `webshopdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `webshopdb`;
@@ -25,7 +25,7 @@ USE `webshopdb`;
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `administrator`
+-- Table structure for table `administrator`
 --
 
 DROP TABLE IF EXISTS `administrator`;
@@ -38,14 +38,14 @@ CREATE TABLE IF NOT EXISTS `administrator` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tabel leegmaken voor invoegen `administrator`
+-- Truncate table before insert `administrator`
 --
 
 TRUNCATE TABLE `administrator`;
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `bestelling`
+-- Table structure for table `bestelling`
 --
 
 DROP TABLE IF EXISTS `bestelling`;
@@ -60,12 +60,12 @@ CREATE TABLE IF NOT EXISTS `bestelling` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tabel leegmaken voor invoegen `bestelling`
+-- Truncate table before insert `bestelling`
 --
 
 TRUNCATE TABLE `bestelling`;
 --
--- Gegevens worden uitgevoerd voor tabel `bestelling`
+-- Dumping data for table `bestelling`
 --
 
 INSERT INTO `bestelling` (`Bestelnummer`, `Klantnummer`, `Productnaam`, `Verzendmethode`, `Besteldatum`, `Aantal`) VALUES
@@ -76,7 +76,7 @@ INSERT INTO `bestelling` (`Bestelnummer`, `Klantnummer`, `Productnaam`, `Verzend
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `categorie`
+-- Table structure for table `categorie`
 --
 
 DROP TABLE IF EXISTS `categorie`;
@@ -87,12 +87,12 @@ CREATE TABLE IF NOT EXISTS `categorie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tabel leegmaken voor invoegen `categorie`
+-- Truncate table before insert `categorie`
 --
 
 TRUNCATE TABLE `categorie`;
 --
--- Gegevens worden uitgevoerd voor tabel `categorie`
+-- Dumping data for table `categorie`
 --
 
 INSERT INTO `categorie` (`ID`, `Naam`) VALUES
@@ -103,7 +103,7 @@ INSERT INTO `categorie` (`ID`, `Naam`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `collectie`
+-- Table structure for table `collectie`
 --
 
 DROP TABLE IF EXISTS `collectie`;
@@ -114,12 +114,12 @@ CREATE TABLE IF NOT EXISTS `collectie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tabel leegmaken voor invoegen `collectie`
+-- Truncate table before insert `collectie`
 --
 
 TRUNCATE TABLE `collectie`;
 --
--- Gegevens worden uitgevoerd voor tabel `collectie`
+-- Dumping data for table `collectie`
 --
 
 INSERT INTO `collectie` (`ID`, `Naam`) VALUES
@@ -130,7 +130,7 @@ INSERT INTO `collectie` (`ID`, `Naam`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `klant`
+-- Table structure for table `klant`
 --
 
 DROP TABLE IF EXISTS `klant`;
@@ -149,21 +149,25 @@ CREATE TABLE IF NOT EXISTS `klant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tabel leegmaken voor invoegen `klant`
+-- Truncate table before insert `klant`
 --
 
 TRUNCATE TABLE `klant`;
 --
--- Gegevens worden uitgevoerd voor tabel `klant`
+-- Dumping data for table `klant`
 --
 
 INSERT INTO `klant` (`Klantnummer`, `Email`, `Voornaam`, `Tussenvoegsel`, `Achternaam`, `Wachtwoord`, `Rol_ID`, `Salt`) VALUES
-(0, 'willem@dezwijger.com', 'Willem', 'van', 'Oranje', 'a83518c0922d85e9651fcea02662a65177982ec3e5311aeeee52e563d0ac5f0a8f954468fcfcab2676085736841a08832815578914542e8c39be8ed13ccb2487', 1, 'jOgQPiR6PVzUWqJ');
+(0, 'willem@dezwijger.com', 'Willem', 'van', 'Oranje', '6963cb98cc0c6f24d1d8d472f9665e6efe0186400267dc9b1ec00d8f9add8abb5ef682d4961d516b44b8e8b78cc726f12089960d66756a1c51222592a3533e8f', 1, '30WsET30WsET30W'),
+(1, 'tolmeester@kanaal.nl', 'Michiel Adriaenszoon', 'de', 'Ruyter', '7d993e66602f1ecf54534a7357ced40da758b13962058b4f72c3b24c8c00e3727abea5d0f2b20ed5fdbc75555e4f1f5976560d880aa89894141a828178c95cb1', 1, 'MRSwJ5UMqRvrlfR'),
+(2, 'sinterbaas@hotmale.nl', 'Jan', 'Pieterszoon', 'Coen', '692de305a5f41f770e4992d949724bbb053a26eb916e5c8ba2977a4f5b6f5c0596fb99924aa798fb7bec74902e45f01c18c6f8c3292a4626b50457d3f51065b0', 1, 'tAfiFpqOAUkjCz2'),
+(3, 'maximvanree@gmail.com', 'Maxim', '', 'Ivanov', '2d56b5d2d7323f2cd559889a71496c078d6e8a3d40ff0e528b7b153f21b229f830cc80cb8202368827c8bcbc421ac828352ebb9df3229b1f190fe649200374d5', 1, 'UCmeKvvZwmT5HhJ'),
+(4, 'cowfaicd@gmail.com', 'Jeroen', '', 'Dekker', '8497657f46af501c6deb2395027771a1172aa732a8fc00edb9890d21293e6183672296f51a2ab66fe28ced48287cbd61a8ff11e2aaa574a3cc9d976d0b11c075', 1, 'mfRJ9Ec8jQTDbk1');
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `locatie`
+-- Table structure for table `locatie`
 --
 
 DROP TABLE IF EXISTS `locatie`;
@@ -177,12 +181,12 @@ CREATE TABLE IF NOT EXISTS `locatie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tabel leegmaken voor invoegen `locatie`
+-- Truncate table before insert `locatie`
 --
 
 TRUNCATE TABLE `locatie`;
 --
--- Gegevens worden uitgevoerd voor tabel `locatie`
+-- Dumping data for table `locatie`
 --
 
 INSERT INTO `locatie` (`Klantnummer`, `Huisnummer`, `Postcode`, `Straat`, `Woonplaats`) VALUES
@@ -195,7 +199,7 @@ INSERT INTO `locatie` (`Klantnummer`, `Huisnummer`, `Postcode`, `Straat`, `Woonp
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `menu`
+-- Table structure for table `menu`
 --
 
 DROP TABLE IF EXISTS `menu`;
@@ -207,14 +211,14 @@ CREATE TABLE IF NOT EXISTS `menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tabel leegmaken voor invoegen `menu`
+-- Truncate table before insert `menu`
 --
 
 TRUNCATE TABLE `menu`;
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `pagina`
+-- Table structure for table `pagina`
 --
 
 DROP TABLE IF EXISTS `pagina`;
@@ -227,14 +231,14 @@ CREATE TABLE IF NOT EXISTS `pagina` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tabel leegmaken voor invoegen `pagina`
+-- Truncate table before insert `pagina`
 --
 
 TRUNCATE TABLE `pagina`;
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `product`
+-- Table structure for table `product`
 --
 
 DROP TABLE IF EXISTS `product`;
@@ -250,12 +254,12 @@ CREATE TABLE IF NOT EXISTS `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tabel leegmaken voor invoegen `product`
+-- Truncate table before insert `product`
 --
 
 TRUNCATE TABLE `product`;
 --
--- Gegevens worden uitgevoerd voor tabel `product`
+-- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`Productnummer`, `Productbeschrijving`, `Prijs`, `Afbeelding`, `Productnaam`, `Collectie_ID`, `Categorie_ID`) VALUES
@@ -272,7 +276,7 @@ INSERT INTO `product` (`Productnummer`, `Productbeschrijving`, `Prijs`, `Afbeeld
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `rollen`
+-- Table structure for table `rollen`
 --
 
 DROP TABLE IF EXISTS `rollen`;
@@ -283,12 +287,12 @@ CREATE TABLE IF NOT EXISTS `rollen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tabel leegmaken voor invoegen `rollen`
+-- Truncate table before insert `rollen`
 --
 
 TRUNCATE TABLE `rollen`;
 --
--- Gegevens worden uitgevoerd voor tabel `rollen`
+-- Dumping data for table `rollen`
 --
 
 INSERT INTO `rollen` (`ID`, `Naam`) VALUES
@@ -298,7 +302,7 @@ INSERT INTO `rollen` (`ID`, `Naam`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `werknemer`
+-- Table structure for table `werknemer`
 --
 
 DROP TABLE IF EXISTS `werknemer`;
@@ -312,7 +316,7 @@ CREATE TABLE IF NOT EXISTS `werknemer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Tabel leegmaken voor invoegen `werknemer`
+-- Truncate table before insert `werknemer`
 --
 
 TRUNCATE TABLE `werknemer`;
