@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="klantInfo.css"/>
+    <link rel="stylesheet" href="include/klantInfo.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         function toggleTabellen() {
@@ -15,7 +15,7 @@
 session_start();
 
 //Kijk hoeveel collecties er in de database staan en sla dit op in $collecties
-$conn = new mysqli("localhost", "root", "usbw", "webshopdb");
+$conn = new mysqli("localhost", "root", "", "webshopdb");
 $sql = "SELECT COUNT('ID') FROM collectie";
 $result = $conn->query($sql);
 while($row = mysqli_fetch_array($result)) {
@@ -148,7 +148,7 @@ for($i = 1; $i <= $collecties; $i++) {
     for ($k = 1; $k <= $categorieen; $k++) {
         if(in_array($i, $zichtbareCollecties)) {
             if(in_array($k, $zichtbareCategorieen)) {
-                $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
+                $conn = new mysqli("localhost", "root", "", "webshopdb");
                 $sql = "SELECT * FROM product WHERE collectie_ID = " . $i . " AND categorie_ID = " . $k;
                 $result = $conn->query($sql);
 
@@ -188,7 +188,7 @@ for($i = 1; $i <= $collecties; $i++) {
     for ($k = 1; $k <= $categorieen; $k++) {
         if(in_array($i, $zichtbareCollecties)) {
             if(in_array($k, $zichtbareCategorieen)) {
-                $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
+                $conn = new mysqli("localhost", "root", "", "webshopdb");
                 $sql = "SELECT * FROM product WHERE collectie_ID = " . $i . " AND categorie_ID = " . $k;
                 $result = $conn->query($sql);
 
