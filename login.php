@@ -217,7 +217,7 @@ if(isset($logout)){
 }
 
 if(isset($_SESSION["login"])){
-    echo "<p>Ingelogd als " . $_SESSION["login"] . ". <a href='klantInfo.php'><button>Persoonsgegevens inzien</button></a><a href='ProductToevoegen.php.php'><button>Producten Beheren</button></a></p>
+    echo "<p>Ingelogd als " . $_SESSION["login"] . ". <a href='klantInfo.php'><button>Persoonsgegevens inzien</button></a><a href='ProductToevoegen.php'><button>Producten Beheren</button></a></p>
             <br>
             <form method='post' action=''>
                 <input type='submit' name='logout' value='Log uit'/>
