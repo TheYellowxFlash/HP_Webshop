@@ -16,31 +16,31 @@ session_start();
 
 //Kijk hoeveel collecties er in de database staan en sla dit op in $collecties
 $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
-$sql = "SELECT COUNT('ID') FROM collectie";
+$sql = "SELECT COUNT('ColID') FROM collectie";
 $result = $conn->query($sql);
 while($row = mysqli_fetch_array($result)) {
-    $collecties = $row["COUNT('ID')"];
+    $collecties = $row["COUNT('ColID')"];
 }
 
-$sql2 = "SELECT Naam FROM `collectie`";
+$sql2 = "SELECT ColNaam FROM `collectie`";
 $result2 = $conn->query($sql2);
 $i = 0;
 while ($row2 = mysqli_fetch_array($result2)) {
-    $collectieNaam[$i] = $row2['Naam'];
+    $collectieNaam[$i] = $row2['ColNaam'];
     $i++;
 };
 
-$sql3 = "SELECT COUNT('ID') FROM categorie";
+$sql3 = "SELECT COUNT('CatID') FROM categorie";
 $result3 = $conn->query($sql3);
 while($row3 = mysqli_fetch_array($result3)) {
-    $categorieen = $row3["COUNT('ID')"];
+    $categorieen = $row3["COUNT('CatID')"];
 }
 
-$sql4 = "SELECT Naam FROM `categorie`";
+$sql4 = "SELECT CatNaam FROM `categorie`";
 $result4 = $conn->query($sql4);
 $i = 0;
 while ($row4 = mysqli_fetch_array($result4)) {
-    $categorieNaam[$i] = $row4['Naam'];
+    $categorieNaam[$i] = $row4['CatNaam'];
     $i++;
 };
 $conn->close();
@@ -157,6 +157,7 @@ for($i = 1; $i <= $categorieen; $i++) {
 echo "</form></div>";
 //--
 
+/*
 echo "</div><div class='container-fluid'>";
 
 //Loop door alle collecties heen en laat deze zien in een tabel dmv $collecties en $i
@@ -237,10 +238,84 @@ for($i = 1; $i <= $collecties; $i++) {
 }
 
 echo "</table><button type='button' class='toggleButton' onclick='toggleTabellen()'>Annuleren</button></span>";
-
+*/
 
 ?>
 
-<a href="login.php"><button type="button">Home</button></a>
+<?php
+
+$alltests = array("ColID", "ColNaam", "CatID", "CatNaam", "Productnummer", "Productnaam", "Prijs", "Productbeschrijving");
+    echo '
+    <table class="table-bordered table-hover">
+        <tr>';
+            //<th>Col_ID</th><th>Col_Naam</th><th>Cat_ID</th><th><a Cat_Naam</a></th><th>Pnr</th><th>Naam</th><th>Prijs</th><th>Beschrijving</th>
+            for($i = 0; $i < count($alltests); $i++) {
+                $currentTest = $alltests[$i];
+                echo '<th><a ';
+                if (isset($_GET["order"])) {
+                    if ($_GET["order"] == $currentTest) {
+                        echo 'href="' . $_SERVER['PHP_SELF'] . '?' . substr($_SERVER['QUERY_STRING'], 0, strpos($_SERVER['QUERY_STRING'], "order") - 1);
+                    } else {
+                        echo 'href="' . $_SERVER['PHP_SELF'] . '?' . substr($_SERVER['QUERY_STRING'], 0, strpos($_SERVER['QUERY_STRING'], "order") - 1) . "&order=" . $currentTest;
+                    }
+                } else {
+                    echo 'href="' . $_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING'] . "&order=" . $currentTest;
+                }
+                echo '">' . $currentTest . "</a></th>";
+            }
+        echo '</tr>';
+        $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
+        $sql = "SELECT * FROM product p JOIN categorie cat ON p.Categorie_ID=cat.CatID JOIN collectie col ON p.Collectie_ID=col.ColID";
+        if(isset($_GET["order"])){
+            for($i = 0; $i < count($alltests); $i++) {
+                if($_GET["order"] == $alltests[$i]) {
+                    $sql .= " ORDER BY " . $alltests[$i];
+                }
+            }
+        }
+
+        else{
+            $sql .= " ORDER BY ColID";
+        }
+
+
+        if(isset($_GET["orderDir"])){
+            $sql .= " DESC";
+            echo "<a href='" . $_SERVER['PHP_SELF'] . '?' . substr($_SERVER['QUERY_STRING'], 0, -9) . "'><button>Sort Ascending</button></a>";
+        }
+        else{
+            echo "<a href='" . $_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING'] . "&orderDir'><button>Sort Descending</button></a>";
+        }
+        $result = $conn->query($sql);
+
+        while ($row = mysqli_fetch_array($result)) {   //Creates a loop to loop through results
+            $prijs = $row['Prijs'];
+            if (substr($prijs, -2, 2) == "00") {
+                $prijs = substr($prijs, 0, -3) . ",-&#8239&#8239&#8239&#8239";
+            }
+            for ($j = 0; $j < strlen($prijs); $j++) {
+                if (substr($prijs, $j, 1) == ".") {
+                    $prijs = substr($prijs, 0, $j) . "," . substr($prijs, -2, 2);
+                }
+            }
+
+            echo "<tr>
+                    <td>" . $row['ColID'] . "</td>
+                    <td>" . $row['ColNaam'] . "</td>
+                    <td>" . $row['CatID'] . "</td>
+                    <td>" . $row['CatNaam'] . "</td>
+                    <td>" . $row['Productnummer'] . "</td>
+                    <td>" . $row['Productnaam'] . "</td>
+                    <td><span>&#x20ac;</span> <span style='float: right;'>" . $prijs . "</span></td>
+                    <td>" . $row['Productbeschrijving'] . "</td>
+                </tr>";
+        };
+        $conn->close();
+    echo '
+    </table>
+    ';
+?>
+
+</b><a href="login.php"><button type="button">Home</button></a>
 </div></div>
 </body>

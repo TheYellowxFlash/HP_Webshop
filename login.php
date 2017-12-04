@@ -157,13 +157,14 @@ session_start();
 
 //Genereer salt als random-nummer, en check of deze nog niet bestaat
 $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
-$result = $conn->query("SELECT Email, Wachtwoord, Salt FROM klant");
+$result = $conn->query("SELECT Email, Wachtwoord, Salt, Rol_ID FROM klant");
 if ($result->num_rows > 0) {
     $i = 0;
     while($row = $result->fetch_assoc()) {
         $email[$i] = $row["Email"];
         $pass[$i] = $row["Wachtwoord"];
         $salts[$i] = $row["Salt"];
+        $rol[$i] = $row["Rol_ID"];
         $i++;
     }
 }
@@ -188,6 +189,7 @@ if(isset($_POST["login"])){
     for($i = 0; $i < count($email); $i++){
         if($_POST["email"] == $email[$i] && hashPass($_POST["pass"], $salts[$i]) == $pass[$i]){
             $_SESSION["login"] = $_POST["email"];
+            $_SESSION["rol"] = $rol[$i];
             $loginCheck = true;
         }
     }
