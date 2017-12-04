@@ -110,7 +110,7 @@ function generateRandomString($length) {
 function generateSalt(){
     $salt = "";
     //Genereer salt als random-nummer, en check of deze nog niet bestaat
-    include("dbconnect.php");
+    include("include/dbconnect.php");;
     $result = $conn->query("SELECT Salt FROM klant");
     if ($result->num_rows > 0) {
         $i = 0;
@@ -206,7 +206,7 @@ function hashPass($pass, $salt){
 session_start();
 
 //Genereer salt als random-nummer, en check of deze nog niet bestaat
-include("dbconnect.php");
+include("include/dbconnect.php");;
 $result = $conn->query("SELECT Email, Wachtwoord, Salt FROM klant");
 if ($result->num_rows > 0) {
     $i = 0;
@@ -293,7 +293,7 @@ if(isset($_POST["register"])){
         $_POST["wachtwoord1"] == $_POST["wachtwoord2"]) {
         $newSalt = generateSalt();
 
-        include("dbconnect.php");
+        include("include/dbconnect.php");;
         $result = $conn->query("SELECT MAX(Klantnummer) FROM klant");
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -303,12 +303,12 @@ if(isset($_POST["register"])){
         $conn->close();
 
         // Create connection
-        include("dbconnect.php");
+        include("include/dbconnect.php");;
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $sql = "INSERT INTO klant VALUES('" . $nieuwKlantNummer . "', '" . $_POST["email"] . "', '" . $_POST["voornaam"] . "', '" . $_POST["tussenvoegsel"] . "', '" . $_POST["achternaam"] . "', '" . hashPass($_POST["wachtwoord1"], $newSalt) . "', '0', '" . $newSalt . "');";
+        $sql = "INSERT INTO klant VALUES('" . $nieuwKlantNummer . "', '" . $_POST["email"] . "', '" . $_POST["voornaam"] . "', '" . $_POST["tussenvoegsel"] . "', '" . $_POST["achternaam"] . "', '" . hashPass($_POST["wachtwoord1"], $newSalt) . "', '1', '" . $newSalt . "');";
         $sql2 = "INSERT INTO locatie VALUES('" . $nieuwKlantNummer . "', '" . $_POST["huisnummer"] . "', '" . $_POST["postcode"] . "', '" . $_POST["straat"] . "', '" . $_POST["woonplaats"] . "')";
 
         if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
