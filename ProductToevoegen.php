@@ -13,9 +13,12 @@
 <h3>Product overzicht</h3>
 <?php
 session_start();
+if($_SESSION['rol'] != 2 || $_SESSION['rol'] != 3){
+    header("location: login.php");
+}
 
 //Kijk hoeveel collecties er in de database staan en sla dit op in $collecties
-$conn = new mysqli("localhost", "root", "usbw", "webshopdb");
+$conn = new mysqli("localhost", "root", "", "webshopdb");
 $sql = "SELECT COUNT('ID') FROM collectie";
 $result = $conn->query($sql);
 while($row = mysqli_fetch_array($result)) {

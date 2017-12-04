@@ -238,6 +238,7 @@ if(isset($_POST["login"])){
     for($i = 0; $i < count($email); $i++){
         if($_POST["email"] == $email[$i] && hashPass($_POST["pass"], $salts[$i]) == $pass[$i]){
             $_SESSION["login"] = $_POST["email"];
+            $_SESSION['rol'] = 1;
             $loginCheck = true;
         }
     }
@@ -265,11 +266,15 @@ if(isset($logout)){
 }
 
 if(isset($_SESSION["login"])){
-    echo "<p>Ingelogd als " . $_SESSION["login"] . ". <a href='klantInfo.php'><button>Persoonsgegevens inzien</button></a> <a href='ProductToevoegen.php'><button>Producten Inzien</button></a></p>
+    echo "<p>Ingelogd als " . $_SESSION["login"] . ". <a href='klantInfo.php'><button>Persoonsgegevens inzien</button></a></p>
             <br>
             <form method='post' action=''>
                 <input type='submit' name='logout' value='Log uit'/>
             </form>";
+
+    if($_SESSION['rol'] == 2 || $_SESSION['rol'] == 3){
+        echo "<a href='ProductToevoegen.php'><button>Producten Inzien</button></a>";
+    }
 }
 else{
     echo'<form id="loginForm" method="post" action="">
