@@ -2399,14 +2399,14 @@ fieldset[disabled] a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #28a745;
-  border-color: #28a745;
+  background-color: lightgray;
+  border-color: lightgray;
 }
 
 .btn-success:hover {
   color: #fff;
-  background-color: #218838;
-  border-color: #1e7e34;
+  background-color: darkgray;
+  border-color: darkgray;
 }
 
 .btn-success:focus, .btn-success.focus {
