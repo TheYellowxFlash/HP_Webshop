@@ -110,7 +110,7 @@ function generateRandomString($length) {
 function generateSalt(){
     $salt = "";
     //Genereer salt als random-nummer, en check of deze nog niet bestaat
-    include("../include/dbconnect.php");
+    include("dbconnect.php");
     $result = $conn->query("SELECT Salt FROM klant");
     if ($result->num_rows > 0) {
         $i = 0;
@@ -206,7 +206,7 @@ function hashPass($pass, $salt){
 session_start();
 
 //Genereer salt als random-nummer, en check of deze nog niet bestaat
-include("../include/dbconnect.php");
+include("dbconnect.php");
 $result = $conn->query("SELECT Email, Wachtwoord, Salt FROM klant");
 if ($result->num_rows > 0) {
     $i = 0;
