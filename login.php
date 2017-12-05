@@ -130,59 +130,6 @@ function generateSalt(){
     return $salt;
 }
 
-function saltPass($pass, $salt){
-    $alphaValues = array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-        "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
-        "1","2","3","4","5","6","7","8","9","0");
-
-    $message    = $pass;
-    $key        = $salt;
-    $usableKey = $key;
-
-    $message = mb_strtolower($message);
-    $usableKey = mb_strtolower($usableKey);
-
-    while(strlen($usableKey) < strlen($message)){
-        $usableKey .= $usableKey;
-    }
-    while(strlen($usableKey) > strlen($message)){
-        $usableKey = substr($usableKey, 0, -1);
-    }
-
-    $crypt = "";
-    for($i = 0; $i < strlen($usableKey); $i++){
-        if(in_array(substr($message, $i, 1), $alphaValues)) {
-            $tempNum = 0;
-            $mesNum = 0;
-            $keyNum = 0;
-
-            for ($j = 0; $j < count($alphaValues); $j++) {
-                if ($alphaValues[$j] == substr($message, $i, 1)) {
-                    $mesNum = $j;
-                }
-                if ($alphaValues[$j] == substr($usableKey, $i, 1)) {
-                    $keyNum = $j;
-                }
-
-                if ($mesNum + $keyNum > 0) {
-                    $tempNum = $mesNum + $keyNum;
-                }
-            }
-
-            if ($tempNum > count($alphaValues)) {
-                $tempNum -= count($alphaValues);
-            }
-
-            $crypt .= $alphaValues[$tempNum];
-        }
-        else{
-            $crypt .= substr($message, $i, 1);
-        }
-    }
-
-    return $crypt;
-}
-
 function hashPass($pass, $salt){
     //Verleng salt totdat deze even lang is als het opgegeven wachtwoord
     while(strlen($pass) > strlen($salt)){
@@ -192,7 +139,10 @@ function hashPass($pass, $salt){
         $salt = substr($salt, 0, -1);
     }
 
-    $hashable = saltPass($pass, $salt);
+    $hashable = "";
+    for($i = 0; $i < strlen($pass); $i++) {
+        $hashable = $hashable . substr($pass, $i, 1) . substr($salt, $i, 1);
+    }
 
     //Hash the hashable string a couple of times
     $hashedData = $hashable;
@@ -207,13 +157,14 @@ session_start();
 
 //Genereer salt als random-nummer, en check of deze nog niet bestaat
 include("include/dbconnect.php");
-$result = $conn->query("SELECT Email, Wachtwoord, Salt FROM klant");
+$result = $conn->query("SELECT Email, Wachtwoord, Salt, Rol_ID FROM klant");
 if ($result->num_rows > 0) {
     $i = 0;
     while($row = $result->fetch_assoc()) {
         $email[$i] = $row["Email"];
         $pass[$i] = $row["Wachtwoord"];
         $salts[$i] = $row["Salt"];
+        $rol[$i] = $row["Rol_ID"];
         $i++;
     }
 }
@@ -238,7 +189,7 @@ if(isset($_POST["login"])){
     for($i = 0; $i < count($email); $i++){
         if($_POST["email"] == $email[$i] && hashPass($_POST["pass"], $salts[$i]) == $pass[$i]){
             $_SESSION["login"] = $_POST["email"];
-            $_SESSION['rol'] = 1;
+            $_SESSION["rol"] = $rol[$i];
             $loginCheck = true;
         }
     }
@@ -266,15 +217,11 @@ if(isset($logout)){
 }
 
 if(isset($_SESSION["login"])){
-    echo "<p>Ingelogd als " . $_SESSION["login"] . ". <a href='klantInfo.php'><button>Persoonsgegevens inzien</button></a></p>
+    echo "<p>Ingelogd als " . $_SESSION["login"] . ". <a href='klantInfo.php'><button>Persoonsgegevens inzien</button></a><a href='ProductToevoegen.php'><button>Producten Beheren</button></a></p>
             <br>
             <form method='post' action=''>
                 <input type='submit' name='logout' value='Log uit'/>
             </form>";
-
-    if($_SESSION['rol'] == 2 || $_SESSION['rol'] == 3){
-        echo "<a href='ProductToevoegen.php'><button>Producten Inzien</button></a>";
-    }
 }
 else{
     echo'<form id="loginForm" method="post" action="">
@@ -298,7 +245,7 @@ if(isset($_POST["register"])){
         $_POST["wachtwoord1"] == $_POST["wachtwoord2"]) {
         $newSalt = generateSalt();
 
-        include("include/dbconnect.php");;
+        include("include/dbconnect.php");
         $result = $conn->query("SELECT MAX(Klantnummer) FROM klant");
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -308,12 +255,12 @@ if(isset($_POST["register"])){
         $conn->close();
 
         // Create connection
-        include("include/dbconnect.php");;
+        include("include/dbconnect.php");
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $sql = "INSERT INTO klant VALUES('" . $nieuwKlantNummer . "', '" . $_POST["email"] . "', '" . $_POST["voornaam"] . "', '" . $_POST["tussenvoegsel"] . "', '" . $_POST["achternaam"] . "', '" . hashPass($_POST["wachtwoord1"], $newSalt) . "', '1', '" . $newSalt . "');";
+        $sql = "INSERT INTO klant VALUES('" . $nieuwKlantNummer . "', '" . $_POST["email"] . "', '" . $_POST["voornaam"] . "', '" . $_POST["tussenvoegsel"] . "', '" . $_POST["achternaam"] . "', '" . hashPass($_POST["wachtwoord1"], $newSalt) . "', '0', '" . $newSalt . "');";
         $sql2 = "INSERT INTO locatie VALUES('" . $nieuwKlantNummer . "', '" . $_POST["huisnummer"] . "', '" . $_POST["postcode"] . "', '" . $_POST["straat"] . "', '" . $_POST["woonplaats"] . "')";
 
         if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {

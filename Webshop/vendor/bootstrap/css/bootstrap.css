@@ -683,10 +683,69 @@ pre code {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
 }
+
+.row1 {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #ffffff;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: grey}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: grey;
+}
+
+
 
 .no-gutters {
   margin-right: 0;
@@ -1327,15 +1386,46 @@ pre code {
 
   .col-lg-14 {
     -ms-flex: 0 0 75%;
-    flex: 0 0 75%;
+    flex: 0 0  75%;
     max-width: 100%;
     margin: 0 auto;
-    width: 50%;
-    padding: 1px;
+    width: 65%;
+    padding: 50px;
     text-align: center;
 
   }
 
+  /* de scroll downs in de menu */
+
+
+  #nav, #nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  #nav li {
+    float: left;
+    width: 100px;
+  }
+
+  #nav ul {
+    position: absolute;
+    width: 100px;
+    left: -1000px;
+  }
+
+  #nav li:hover ul, #nav li.ie_does_hover ul {
+    left: auto;
+    background-position: 0 0;
+  }
+
+  #nav a {
+    display: block;
+  }
+
+
+  /* eind menu */
   .order-lg-first {
     -ms-flex-order: -1;
         order: -1;
@@ -2399,14 +2489,14 @@ fieldset[disabled] a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #28a745;
-  border-color: #28a745;
+  background-color: lightgray;
+  border-color: lightgray;
 }
 
 .btn-success:hover {
   color: #fff;
-  background-color: #218838;
-  border-color: #1e7e34;
+  background-color: darkgray;
+  border-color: darkgray;
 }
 
 .btn-success:focus, .btn-success.focus {
@@ -7010,7 +7100,7 @@ a.bg-dark:focus, a.bg-dark:hover {
 
 .mt-4,
 .my-4 {
-  margin-top: 1.5rem !important;
+  margin-top: 7rem !important;
 }
 
 .mr-4,
