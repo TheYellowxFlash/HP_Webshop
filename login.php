@@ -110,7 +110,7 @@ function generateRandomString($length) {
 function generateSalt(){
     $salt = "";
     //Genereer salt als random-nummer, en check of deze nog niet bestaat
-    $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
+    include("include/dbconnect.php");
     $result = $conn->query("SELECT Salt FROM klant");
     if ($result->num_rows > 0) {
         $i = 0;
@@ -156,7 +156,7 @@ function hashPass($pass, $salt){
 session_start();
 
 //Genereer salt als random-nummer, en check of deze nog niet bestaat
-$conn = new mysqli("localhost", "root", "usbw", "webshopdb");
+include("include/dbconnect.php");
 $result = $conn->query("SELECT Email, Wachtwoord, Salt, Rol_ID FROM klant");
 if ($result->num_rows > 0) {
     $i = 0;
@@ -245,7 +245,7 @@ if(isset($_POST["register"])){
         $_POST["wachtwoord1"] == $_POST["wachtwoord2"]) {
         $newSalt = generateSalt();
 
-        $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
+        include("include/dbconnect.php");
         $result = $conn->query("SELECT MAX(Klantnummer) FROM klant");
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -255,7 +255,7 @@ if(isset($_POST["register"])){
         $conn->close();
 
         // Create connection
-        $conn = new mysqli("localhost", "root", "usbw", "webshopdb");
+        include("include/dbconnect.php");
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
