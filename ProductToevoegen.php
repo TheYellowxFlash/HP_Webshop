@@ -14,6 +14,10 @@
 <?php
 session_start();
 
+if ($_SESSION['rol'] != 2 && $_SESSION['rol'] != 3){
+    header("location:login.php");
+}
+
 if(isset($_POST["deleteProduct"])){
     echo "DELETE FROM collectie WHERE Productnummer=" . $_POST["pnr"];
 }
