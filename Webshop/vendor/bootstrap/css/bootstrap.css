@@ -2500,32 +2500,32 @@ fieldset[disabled] a.btn {
 }
 
 .btn-success:focus, .btn-success.focus {
-  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+  box-shadow: lightgray;
 }
 
 .btn-success.disabled, .btn-success:disabled {
-  background-color: #28a745;
-  border-color: #28a745;
+  background-color: lightgray;
+  border-color: lightgray;
 }
 
 .btn-success:not([disabled]):not(.disabled):active, .btn-success:not([disabled]):not(.disabled).active,
 .show > .btn-success.dropdown-toggle {
   color: #fff;
-  background-color: #1e7e34;
-  border-color: #1c7430;
-  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+  background-color: lightgray;
+  border-color: lightgray;
+  box-shadow: darkgray;
 }
 
 .btn-info {
   color: #fff;
-  background-color: #17a2b8;
-  border-color: #17a2b8;
+  background-color: lightgray;
+  border-color: lightgray;
 }
 
 .btn-info:hover {
   color: #fff;
-  background-color: #138496;
-  border-color: #117a8b;
+  background-color: darkgray;
+  border-color: darkgray;
 }
 
 .btn-info:focus, .btn-info.focus {
@@ -8499,5 +8499,7 @@ a.text-dark:focus, a.text-dark:hover {
 .invisible {
   visibility: hidden !important;
 }
+
+
 /*# sourceMappingURL=bootstrap.css.map */
 
