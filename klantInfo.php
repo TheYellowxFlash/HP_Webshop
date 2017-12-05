@@ -31,7 +31,7 @@
         });
     </script>
 
-    <link rel="stylesheet" href="klantInfo.css"/>
+    <link rel="stylesheet" href="include/css/klantInfo.css"/>
 </head>
 
 <?php

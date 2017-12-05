@@ -264,12 +264,13 @@ if(isset($_POST["register"])){
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $sql = "INSERT INTO klant VALUES('" . $nieuwKlantNummer . "', '" . $_POST["email"] . "', '" . $_POST["voornaam"] . "', '" . $_POST["tussenvoegsel"] . "', '" . $_POST["achternaam"] . "', '" . hashPass($_POST["wachtwoord1"], $newSalt) . "', '0', '" . $newSalt . "');";
+        $sql = "INSERT INTO klant VALUES('" . $nieuwKlantNummer . "', '" . $_POST["email"] . "', '" . $_POST["voornaam"] . "', '" . $_POST["tussenvoegsel"] . "', '" . $_POST["achternaam"] . "', '" . hashPass($_POST["wachtwoord1"], $newSalt) . "', '1', '" . $newSalt . "');";
         $sql2 = "INSERT INTO locatie VALUES('" . $nieuwKlantNummer . "', '" . $_POST["huisnummer"] . "', '" . $_POST["postcode"] . "', '" . $_POST["straat"] . "', '" . $_POST["woonplaats"] . "')";
 
         if ($conn->query($sql) === TRUE && $conn->query($sql2) === TRUE) {
             $_SESSION["registerSuccesful"] = true;
             echo "U bent succesvol geregistreerd ;)";
+            $_SESSION["rol"] = 1;
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
             $_SESSION["registerSuccesful"] = false;
