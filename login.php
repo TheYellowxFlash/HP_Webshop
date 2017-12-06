@@ -168,7 +168,7 @@ if ($result->num_rows > 0) {
         $i++;
     }
 }
-$conn->close();
+//$conn->close();
 
 if(isset($_SESSION["wrongLogin"])){
     $wrongLogin = true;
@@ -189,14 +189,30 @@ if(isset($_POST["login"])){
     for($i = 0; $i < count($email); $i++){
         if($_POST["email"] == $email[$i] && hashPass($_POST["pass"], $salts[$i]) == $pass[$i]){
             $_SESSION["login"] = $_POST["email"];
-            $_SESSION["rol"] = 1;
+//            $_SESSION["rol"] = 1;
             $loginCheck = true;
+
+            $result = $conn->query("SELECT Rol_ID FROM klant WHERE Email = '" . $_POST['email'] . "'");
+
+            if($result->num_rows > 0){
+                while ($row = $result->fetch_assoc()){
+                    $roll[0] = $row["Rol_ID"];
+                }
+            }
+
+
+
+            $_SESSION['rol'] = $roll[0];
+
+//            print_r($roll);
+//            die();
         }
     }
 
     if(!$loginCheck){
         $_SESSION["wrongLogin"] = true;
     }
+
 
     header('Location: '.$_SERVER['PHP_SELF']);
 }
@@ -214,6 +230,7 @@ if(isset($wrongLogin)){
 if(isset($logout)){
     echo "<p>U bent uitgelogd.</p>";
     unset($logout);
+    session_destroy();
 }
 
 if(isset($_SESSION["login"])){
@@ -223,7 +240,7 @@ if(isset($_SESSION["login"])){
                 <input type='submit' name='logout' value='Log uit'/>
             </form>";
 
-    if($_SESSION['rol'] == 2 && $_SESSION['rol'] == 3){
+    if($_SESSION['rol'] == 2 || $_SESSION['rol'] == 3){
         echo"<a href='ProductToevoegen.php'><button>Producten Inzien</button></a>";
     }
 }
