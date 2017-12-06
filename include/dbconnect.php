@@ -1,3 +1,3 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "webshopdb");
+$conn = new mysqli("localhost", "root", "usbw", "webshopdb");
 ?>
