@@ -40,6 +40,10 @@
             checkAllFields();
 
         });
+
+        var videoInterval = setInterval(function() {
+            checkAllFields();
+        }, 1000);
     });
 
     function openRegForm()
