@@ -1,0 +1,19 @@
+.contactButton{
+    background-color: #333333;
+    border-color: lightgrey;
+    margin-bottom: 5px;
+
+}
+
+.contactButton:hover{
+    background-color: lightgrey;
+    border-color: #333333;
+}
+
+.infoBox {
+    text-align: center;
+}
+
+.borderR {
+    border: red;
+}

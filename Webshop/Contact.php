@@ -15,8 +15,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="css/shop-contact.css" rel="stylesheet">
-    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="../Webshop/css/shop-contact.css" rel="stylesheet">
+    <link href="../Webshop/css/shop-homepage.css" rel="stylesheet">
 
     <?php
         include ('../include/header.php');
@@ -35,55 +35,63 @@
 <?php
 
         $opgeslagenVoornaam = "";
+        $opgeslagenAchternaam = "";
+        $opgeslagenEmail = "";
+        $opgeslagenBericht = "";
+        $opgeslagenTelefoonnummer = "";
 
 if(isset($_POST['contactSubmit'])) {
         $voornaam = $_POST['voornaam'];
         $achternaam = $_POST['achternaam'];
         $email = $_POST['email'];
+        $telefoonnummer = $_POST['telefoonnummer'];
         $bericht = $_POST['bericht'];
 
         $_SESSION['voornaam'] = $voornaam;
+        $_SESSION['achternaam'] = $achternaam;
+        $_SESSION['email'] = $email;
+        $_SESSION['telefoonnummer'] = $telefoonnummer;
+        $_SESSION['bericht'] = $bericht;
     }
-    if(isset($_SESSION['voornaam'])){
-        $opgeslagenVoornaam = $_SESSION['voornaam'];
-}
+        if(isset($_SESSION['voornaam'])) {
+            $opgeslagenVoornaam = $_SESSION['voornaam'];
+        }
+        if(isset($_SESSION['achternaam'])) {
+            $opgeslagenAchternaam = $_SESSION['achternaam'];
+        }
+        if(isset($_SESSION['email'])) {
+            $opgeslagenEmail = $_SESSION['email'];
+        }
+        if(isset($_SESSION['telefoonnummer'])) {
+            $opgeslagenTelefoonnummer = $_POST['telefoonnummer'];
+        }
+        if(isset($_SESSION['bericht'])){
+            $opgeslagenBericht = $_POST['bericht'];
+        }
+
 ?>
 
     <div class="panel panel-default col-md-12">
         <div class="panel-body">
-        <form method="post">
+        <form method="post" action="RedirectContact.php" id="contactForm">
             <div class="form-group">
             <label for="voornaam">Voornaam</label>
-                <input type="text" name="voornaam" id="voornaam" maxlength="50" class="validate['required'] form-control" value="<?php echo $opgeslagenVoornaam; ?>">
+                <input type="text" name="voornaam" id="voornaam" maxlength="50" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenVoornaam; ?>">
 
             <label for="achternaam">Achternaam</label>
-                <input type="text" name="achternaam" id="achternaam" maxlength="50" class="validate['required'] form-control">
+                <input type="text" name="achternaam" id="achternaam" maxlength="50" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenAchternaam; ?>">
 
             <label for="email">E-mailadres</label>
-            <input type="text" name="email" id="email" maxlength="80" class="validate['required'] form-control">
+            <input type="text" name="email" id="email" maxlength="80" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenEmail; ?>">
 
             <label for="telefoonnummer">Telefoonnummer</label>
-                <input type="text" name="telefoonnummer" id="telefoonnummer" maxlength="30" class="validate['numeric'] form-control">
-                <?php
-                if (isset($_POST['telefoonnummer'])){
-                    if(!ctype_digit($_POST['telefoonnummer'])){
-                        echo "Vul een geldig telefoonnummer in<br>";
-                    }
-                }
-                ?>
+                <input type="text" name="telefoonnummer" id="telefoonnummer" maxlength="30" class="validate['numeric'] form-control form-field" value="<?php echo $opgeslagenTelefoonnummer; ?>">
 
             <label for="bericht">Bericht</label>
-                <textarea name="bericht" id="bericht" maxlength="1000" cols="25" rows="6" class="validate['required'] form-control"></textarea>
+                <textarea name="bericht" id="bericht" maxlength="1000" cols="25" rows="6" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenBericht; ?>"></textarea>
             </div>
 
-                <?php
-                if(empty($voornaam) || empty($achternaam) || empty($email) || empty($bericht)){
-                    echo "Vul de bovenstaande velden correct in<br>";
-                }
-
-            ?>
-
-            <button type="submit" name="contactSubmit" class="btn btn-primary contactButton ">Submit</button>
+            <button type="submit" name="contactSubmit" class="btn btn-primary contactButton ">Verstuur</button>
         </form>
         </div>
     </div>
