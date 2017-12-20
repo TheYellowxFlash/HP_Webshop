@@ -46,116 +46,102 @@
             $email = $_POST['email'];
             $telefoonnummer = $_POST['telefoonnummer'];
             $bericht = $_POST['bericht'];
-
-
-            if (isset($_SESSION['Formulier'])) {
-                $_SESSION['voornaam'] = $voornaam;
-                $_SESSION['achternaam'] = $achternaam;
-                $_SESSION['email'] = $email;
-                $_SESSION['telefoonnummer'] = $telefoonnummer;
-                $_SESSION['bericht'] = $bericht;
-            }
-            if (isset($_SESSION['voornaam'])) {
-                $opgeslagenVoornaam = $_SESSION['voornaam'];
-            }
-            if (isset($_SESSION['achternaam'])) {
-                $opgeslagenAchternaam = $_SESSION['achternaam'];
-            }
-            if (isset($_SESSION['email'])) {
-                $opgeslagenEmail = $_SESSION['email'];
-            }
-            if (isset($_SESSION['telefoonnummer'])) {
-                $opgeslagenTelefoonnummer = $_POST['telefoonnummer'];
-            }
-            if (isset($_SESSION['bericht'])) {
-                $opgeslagenBericht = $_POST['bericht'];
-            }
         }
+
+
 
 ?>
 
 <?php
-if(isset($_POST['contactSubmit'])){
-    $van = "stefangrebenar@hotmail.com";
-    $naar = $_POST['email'];
-    $voornaam = $_POST['voornaam'];
-    $achternaam = $_POST['achternaam'];
-    $onderwerp = "Contactformulier";
-    $onderwerp2 = "Kopie van het contactformulier";
-    $bericht = $voornaam . " " . $achternaam . " heeft het volgende bericht gestuurd:" . "\n\n" . $_POST['bericht'];
-    $bericht2 = "Dit is een kopie van het bericht " . $voornaam . "\n\n" . $_POST['bericht'];
-
-    $headers = "Van:" . $van;
-    $headers2 = "Van:" . $naar;
-    mail($van,$onderwerp,$bericht,$headers);
-    mail($naar,$onderwerp2,$bericht2,$headers2);
-}
-?>
+//if(isset($_POST['contactSubmit'])){
+//    $van = "stefangrebenar@hotmail.com";
+//    $naar = $_POST['email'];
+//    $voornaam = $_POST['voornaam'];
+//    $achternaam = $_POST['achternaam'];
+//    $onderwerp = "Contactformulier";
+//    $onderwerp2 = "Kopie van het contactformulier";
+//    $bericht = $voornaam . " " . $achternaam . " heeft het volgende bericht gestuurd:" . "\n\n" . $_POST['bericht'];
+//    $bericht2 = "Dit is een kopie van het bericht " . $voornaam . "\n\n" . $_POST['bericht'];
+//
+//    $headers = "Van:" . $van;
+//    $headers2 = "Van:" . $naar;
+//    mail($van,$onderwerp,$bericht,$headers);
+//    mail($naar,$onderwerp2,$bericht2,$headers2);
+//}
+//?>
 
 <script>
 
-
     function validateField(fieldName) {
         var field = document.getElementById(fieldName);
+        var contactBtn = document.getElementById('contactSubmit');
 
-        if(field.value.length <= 0) {
-            field.style.borderColor = "Red";
+        if (field.value.length <= 0) {
+                field.style.borderColor = "Red"
+                contactBtn.disabled = true;
+            }
+            else if (/[0-9]/.test(field.value)) {
+                field.style.borderColor = "Red";
+            }
+            else {
+                field.style.borderColor = "Green";
+                contactBtn.disabled = false;
+            }
         }
-        else if(/[0-9]/.test(field.value)) {
-            field.style.borderColor = "Red";
+
+    var validateEmail = function(fieldName) {
+        var contactBtn = document.getElementById('contactSubmit');
+        var emailPattern = /[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        var field = document.getElementById(fieldName);
+        if(emailPattern.test(field.value)){
+            field.style.borderColor = "Green";
+            contactBtn.disabled = false;
         }
         else {
-            field.style.borderColor = "Green";
+            field.style.borderColor = "Red";
+            contactBtn.disabled = true;
         }
     }
 
-
-//    <form>
-//    <label> Voornaam </label>
-//    <br>
-//    <input type="text" id="voornaam" onkeyup="validateField('voornaam')">
-//        <br>
-//        <label> Achternaam </label>
-//        <br>
-//        <input type="text" id="achternaam" onkeyup="validateField('achternaam')">
-//        <br>
-//        <label> Email </label>
-//        <br>
-//        <input type="text" id="email" onkeyup="validateField('email')">
-//        <br>
-//        <label> Telefoonnummer </label>
-//        <br>
-//        <input type="text" id="telefoonnummer" onkeyup="validateField('telefoonnummer')">
-//        <br>
-//        <label> Bericht </label>
-//        <br>
-//        <textfield type="text" id="bericht" onkeyup="validateField('bericht')">
-//        </textfield>
-//        </form>
+    var validateBericht = function(fieldName){
+        var field = document.getElementById(fieldName);
+        var contactBtn = document.getElementById('contactSubmit');
+        if (field.value.length <= 0) {
+            field.style.borderColor = "Red";
+            contactBtn.disabled = true;
+        }
+        else {
+            field.style.borderColor = "Green";
+            contactBtn.disabled = false;
+        }
+    }
 
 </script>
 
     <div class="panel panel-default col-md-12">
         <div class="panel-body">
-        <form method="post" action="RedirectContact.php" id="contactForm" onsubmit="return validateField()">
+        <form method="post" action="RedirectContact.php" id="contactForm">
             <div class="form-group">
-            <label for="voornaam">Voornaam</label>
-                <input type="text" name="voornaam" id="voornaam" maxlength="50" onchange="validateField('voornaam')" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenVoornaam; ?>">
+            <label for="voornaam">Voornaam*</label>
+                <input type="text" name="voornaam" id="voornaam" maxlength="50" onkeyup="validateField('voornaam')" class="validate['required'] form-control form-field"
+                       value="<?php if(isset($_POST['voornaam'])){
+                    echo $voornaam;
+                }  ?>">
 
-            <label for="achternaam">Achternaam</label>
-                <input type="text" name="achternaam" id="achternaam"  maxlength="50" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenAchternaam; ?>">
+            <label for="achternaam">Achternaam*</label>
+                <input type="text" name="achternaam" id="achternaam"  maxlength="50" onkeyup="validateField('achternaam')" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenAchternaam; ?>">
 
-            <label for="email">E-mailadres</label>
-            <input type="text" name="email" id="email" maxlength="80" onchange="validateField('achternaam')" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenEmail; ?>">
+            <label for="email">E-mailadres*</label>
+            <input type="text" name="email" id="email" maxlength="80" onkeyup="validateEmail('email')" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenEmail; ?>">
 
             <label for="telefoonnummer">Telefoonnummer</label>
                 <input type="text" name="telefoonnummer" id="telefoonnummer" maxlength="30" class="validate['numeric'] form-control form-field" value="<?php echo $opgeslagenTelefoonnummer; ?>">
 
-            <label for="bericht">Bericht</label>
-                <textarea name="bericht" id="bericht" maxlength="1000" cols="25" rows="6" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenBericht; ?>"></textarea>
+            <label for="bericht">Bericht*</label>
+                <textarea name="bericht" id="bericht" maxlength="1000" cols="25" rows="6" onkeyup="validateBericht('bericht')" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenBericht; ?>"></textarea>
             </div>
 
-            <button type="submit" name="contactSubmit" class="btn btn-primary contactButton ">Verstuur</button>
+            <button type="submit" name="contactSubmit" id="contactSubmit" class="btn btn-primary contactButton">Verzend</button>
         </form>
         </div>
     </div>
