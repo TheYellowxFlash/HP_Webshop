@@ -29,7 +29,7 @@
 <!-- Page Content -->
     <br>
 <div class="container">
-    <h1 class="my-4">Contact met Hair Plaza</h1>
+    <h1 class="my-4 infoBox">Contact met Hair Plaza</h1>
 </div>
 
 <?php
@@ -40,49 +40,113 @@
         $opgeslagenBericht = "";
         $opgeslagenTelefoonnummer = "";
 
-if(isset($_POST['contactSubmit'])) {
-        $voornaam = $_POST['voornaam'];
-        $achternaam = $_POST['achternaam'];
-        $email = $_POST['email'];
-        $telefoonnummer = $_POST['telefoonnummer'];
-        $bericht = $_POST['bericht'];
+        if(isset($_POST['contactSubmit'])) {
+            $voornaam = $_POST['voornaam'];
+            $achternaam = $_POST['achternaam'];
+            $email = $_POST['email'];
+            $telefoonnummer = $_POST['telefoonnummer'];
+            $bericht = $_POST['bericht'];
 
-        $_SESSION['voornaam'] = $voornaam;
-        $_SESSION['achternaam'] = $achternaam;
-        $_SESSION['email'] = $email;
-        $_SESSION['telefoonnummer'] = $telefoonnummer;
-        $_SESSION['bericht'] = $bericht;
-    }
-        if(isset($_SESSION['voornaam'])) {
-            $opgeslagenVoornaam = $_SESSION['voornaam'];
-        }
-        if(isset($_SESSION['achternaam'])) {
-            $opgeslagenAchternaam = $_SESSION['achternaam'];
-        }
-        if(isset($_SESSION['email'])) {
-            $opgeslagenEmail = $_SESSION['email'];
-        }
-        if(isset($_SESSION['telefoonnummer'])) {
-            $opgeslagenTelefoonnummer = $_POST['telefoonnummer'];
-        }
-        if(isset($_SESSION['bericht'])){
-            $opgeslagenBericht = $_POST['bericht'];
+
+            if (isset($_SESSION['Formulier'])) {
+                $_SESSION['voornaam'] = $voornaam;
+                $_SESSION['achternaam'] = $achternaam;
+                $_SESSION['email'] = $email;
+                $_SESSION['telefoonnummer'] = $telefoonnummer;
+                $_SESSION['bericht'] = $bericht;
+            }
+            if (isset($_SESSION['voornaam'])) {
+                $opgeslagenVoornaam = $_SESSION['voornaam'];
+            }
+            if (isset($_SESSION['achternaam'])) {
+                $opgeslagenAchternaam = $_SESSION['achternaam'];
+            }
+            if (isset($_SESSION['email'])) {
+                $opgeslagenEmail = $_SESSION['email'];
+            }
+            if (isset($_SESSION['telefoonnummer'])) {
+                $opgeslagenTelefoonnummer = $_POST['telefoonnummer'];
+            }
+            if (isset($_SESSION['bericht'])) {
+                $opgeslagenBericht = $_POST['bericht'];
+            }
         }
 
 ?>
 
+<?php
+if(isset($_POST['contactSubmit'])){
+    $van = "stefangrebenar@hotmail.com";
+    $naar = $_POST['email'];
+    $voornaam = $_POST['voornaam'];
+    $achternaam = $_POST['achternaam'];
+    $onderwerp = "Contactformulier";
+    $onderwerp2 = "Kopie van het contactformulier";
+    $bericht = $voornaam . " " . $achternaam . " heeft het volgende bericht gestuurd:" . "\n\n" . $_POST['bericht'];
+    $bericht2 = "Dit is een kopie van het bericht " . $voornaam . "\n\n" . $_POST['bericht'];
+
+    $headers = "Van:" . $van;
+    $headers2 = "Van:" . $naar;
+    mail($van,$onderwerp,$bericht,$headers);
+    mail($naar,$onderwerp2,$bericht2,$headers2);
+}
+?>
+
+<script>
+
+
+    function validateField(fieldName) {
+        var field = document.getElementById(fieldName);
+
+        if(field.value.length <= 0) {
+            field.style.borderColor = "Red";
+        }
+        else if(/[0-9]/.test(field.value)) {
+            field.style.borderColor = "Red";
+        }
+        else {
+            field.style.borderColor = "Green";
+        }
+    }
+
+
+//    <form>
+//    <label> Voornaam </label>
+//    <br>
+//    <input type="text" id="voornaam" onkeyup="validateField('voornaam')">
+//        <br>
+//        <label> Achternaam </label>
+//        <br>
+//        <input type="text" id="achternaam" onkeyup="validateField('achternaam')">
+//        <br>
+//        <label> Email </label>
+//        <br>
+//        <input type="text" id="email" onkeyup="validateField('email')">
+//        <br>
+//        <label> Telefoonnummer </label>
+//        <br>
+//        <input type="text" id="telefoonnummer" onkeyup="validateField('telefoonnummer')">
+//        <br>
+//        <label> Bericht </label>
+//        <br>
+//        <textfield type="text" id="bericht" onkeyup="validateField('bericht')">
+//        </textfield>
+//        </form>
+
+</script>
+
     <div class="panel panel-default col-md-12">
         <div class="panel-body">
-        <form method="post" action="RedirectContact.php" id="contactForm">
+        <form method="post" action="RedirectContact.php" id="contactForm" onsubmit="return validateField()">
             <div class="form-group">
             <label for="voornaam">Voornaam</label>
-                <input type="text" name="voornaam" id="voornaam" maxlength="50" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenVoornaam; ?>">
+                <input type="text" name="voornaam" id="voornaam" maxlength="50" onchange="validateField('voornaam')" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenVoornaam; ?>">
 
             <label for="achternaam">Achternaam</label>
-                <input type="text" name="achternaam" id="achternaam" maxlength="50" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenAchternaam; ?>">
+                <input type="text" name="achternaam" id="achternaam"  maxlength="50" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenAchternaam; ?>">
 
             <label for="email">E-mailadres</label>
-            <input type="text" name="email" id="email" maxlength="80" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenEmail; ?>">
+            <input type="text" name="email" id="email" maxlength="80" onchange="validateField('achternaam')" class="validate['required'] form-control form-field" value="<?php echo $opgeslagenEmail; ?>">
 
             <label for="telefoonnummer">Telefoonnummer</label>
                 <input type="text" name="telefoonnummer" id="telefoonnummer" maxlength="30" class="validate['numeric'] form-control form-field" value="<?php echo $opgeslagenTelefoonnummer; ?>">

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
 <?php
-    if(($_POST["voornaam"]) == "" || ($_POST["achternaam"]) == "" || ($_POST["email"]) == "" || ($_POST["bericht"]) == "" || (!ctype_digit($_POST['telefoonnummer']) && $_POST['telefoonnummer'] != "")){
-        header("Location: " . substr($_SERVER["REQUEST_URI"], 0, -strlen("RedirectContact.php")) . "Contact.php");
-    }
+if(($_POST["voornaam"]) == "" || ($_POST["achternaam"]) == "" || ($_POST["email"]) == "" || ($_POST["bericht"]) == "" || (!ctype_digit($_POST['telefoonnummer']) && $_POST['telefoonnummer'] != "")){
+    header("Location: " . substr($_SERVER["REQUEST_URI"], 0, -strlen("RedirectContact.php")) . "Contact.php");
+}
 ?>
+
 
 <html lang="en">
 <head>
@@ -40,17 +41,6 @@
 
 <!-- Einde Page Content -->
 
-<?php
-//
-//if(isset($_POST['contactSubmit'])) {
-//    $voornaam = $_POST['voornaam'];
-//    $achternaam = $_POST['achternaam'];
-//    $email = $_POST['email'];
-//    $telefoonnummer = $_POST['telefoonnummer'];
-//    $bericht = $_POST['bericht'];
-//}
-//
-//?>
 
 <?php
 include('../include/footer.php');
